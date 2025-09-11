@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samarth's Portfolio - Explore the Stars</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars-container">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+    
+    <div class="main-container">
+        <header class="hero-section">
+            <h1 class="hero-title">Welcome to Samarth's Universe</h1>
+            <p class="hero-subtitle">Explore more to know me</p>
+            <div class="scroll-indicator">
+                <span>Scroll to explore</span>
+                <div class="scroll-arrow">↓</div>
+            </div>
+        </header>
+
+        <!-- Minigame Section -->
+        <section class="minigame-section">
+            <div class="game-container">
+                <h2>Star Collector Game</h2>
+                <p>Collect the glowing stars! Use arrow keys to move.</p>
+                <div class="game-board" id="gameBoard">
+                    <div class="player" id="player"></div>
+                    <div class="score">Score: <span id="score">0</span></div>
+                    <div class="high-score">High Score: <span id="highScore">0</span></div>
+                    <button class="start-game-btn" id="startGameBtn">Start Game</button>
+                    <div class="game-instructions">
+                        <p>Use arrow keys or WASD to move and collect stars!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Navigation -->
+        <section class="portfolio-nav">
+            <h2 class="section-title">Explore My Portfolio</h2>
+            <div class="nav-grid">
+                <div class="nav-card" data-section="about">
+                    <div class="card-icon">👨‍💻</div>
+                    <h3>About Me</h3>
+                    <p>Get to know my background and journey</p>
+                </div>
+                
+                <div class="nav-card" data-section="skills">
+                    <div class="card-icon">⚡</div>
+                    <h3>Skills</h3>
+                    <p>Discover my technical abilities</p>
+                </div>
+                
+                <div class="nav-card" data-section="projects">
+                    <div class="card-icon">🚀</div>
+                    <h3>Projects</h3>
+                    <p>Explore my creative works</p>
+                </div>
+                
+                <div class="nav-card" data-section="experience">
+                    <div class="card-icon">💼</div>
+                    <h3>Experience</h3>
+                    <p>View my professional journey</p>
+                </div>
+                
+                <div class="nav-card" data-section="contact">
+                    <div class="card-icon">📬</div>
+                    <h3>Contact</h3>
+                    <p>Let's connect and collaborate</p>
+                </div>
+                
+                <div class="nav-card" data-section="blog">
+                    <div class="card-icon">📝</div>
+                    <h3>Blog</h3>
+                    <p>Read my thoughts and insights</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <section class="content-section" id="about">
+            <div class="content-container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Welcome to my digital universe! I'm Samarth, a passionate developer who loves creating amazing experiences through code.</p>
+                        <p>I believe in the power of technology to transform ideas into reality, and I'm constantly exploring new frontiers in development.</p>
+                        <div class="about-stats">
+                            <div class="stat">
+                                <span class="stat-number">∞</span>
+                                <span class="stat-label">Lines of Code</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">∞</span>
+                                <span class="stat-label">Coffee Cups</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">∞</span>
+                                <span class="stat-label">Dreams Coded</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="skills">
+            <div class="content-container">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Vue.js</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Backend</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">MongoDB</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools & Technologies</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Firebase</span>
+                            <span class="skill-tag">VS Code</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="projects">
+            <div class="content-container">
+                <h2>Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Space Explorer</h3>
+                        <p>An interactive web application for exploring the cosmos with real-time data visualization.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Three.js</span>
+                            <span>WebGL</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Code Galaxy</h3>
+                        <p>A collaborative coding platform where developers can share and explore code snippets.</p>
+                        <div class="project-tech">
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                            <span>Socket.io</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Neural Network Visualizer</h3>
+                        <p>An educational tool for visualizing how neural networks learn and process data.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>D3.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="experience">
+            <div class="content-container">
+                <h2>Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Present</div>
+                        <div class="timeline-content">
+                            <h3>Full Stack Developer</h3>
+                            <p>Building innovative solutions and pushing the boundaries of what's possible with modern web technologies.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Journey</div>
+                        <div class="timeline-content">
+                            <h3>Learning & Growing</h3>
+                            <p>Continuously exploring new technologies, frameworks, and methodologies to stay at the forefront of development.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="contact">
+            <div class="content-container">
+                <h2>Let's Connect</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>Get in Touch</h3>
+                        <p>Ready to collaborate on something amazing? Let's make it happen!</p>
+                        <div class="contact-links">
+                            <a href="#" class="contact-link">📧 Email</a>
+                            <a href="#" class="contact-link">💼 LinkedIn</a>
+                            <a href="#" class="contact-link">🐙 GitHub</a>
+                            <a href="#" class="contact-link">🐦 Twitter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="blog">
+            <div class="content-container">
+                <h2>Blog & Insights</h2>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <h3>The Future of Web Development</h3>
+                        <p>Exploring emerging trends and technologies that will shape the web of tomorrow.</p>
+                        <span class="blog-date">Coming Soon</span>
+                    </div>
+                    <div class="blog-card">
+                        <h3>Building Interactive Experiences</h3>
+                        <p>Tips and techniques for creating engaging user interfaces that delight users.</p>
+                        <span class="blog-date">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
