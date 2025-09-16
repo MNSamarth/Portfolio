@@ -1,30 +1,39 @@
-# Space Portfolio (anime.js)
+# Portfolio
 
-A space-themed, single-file portfolio using anime.js (via CDN), a canvas starfield, and rotating planets. Includes a responsive grid with 12+ project cards and multiple LinkedIn links.
+A multi-page, dark neon-themed portfolio featuring a canvas starfield, anime.js orbits, PDF overlay viewer, and responsive card grids for Projects, Experience, and Certifications.
 
 ## Quick start
 
-- Double-click `index.html` to open it in your browser, or on Windows CMD run:
+- Double-click `index.html` to open it in your browser, or on Windows run:
 
 ```cmd
 start "" index.html
 ```
 
-No build or installs needed.
+No build/install steps are required.
+
+## Pages
+
+- `index.html` — Landing with animated starfield and rotating orbits
+- `about.html` — Summary, right-aligned photo, and GitHub-style tech stack chips
+- `projects.html` — Project cards with concise bullets and GitHub links
+- `experience.html` — Roles with measurable bullets and meta
+- `certifications.html` — 3-across certificate grid with PDF thumbnails and overlay viewer; includes Extracurriculars & Achievements
+- `contact.html` — Contact methods with consistent navbar styling
 
 ## Customize
 
-- LinkedIn: Replace all `https://www.linkedin.com/` with your profile URL.
-- Email: Replace `your.name@example.com`.
-- Projects: Update each card title, description, tags, and links.
-- Colors: Edit CSS variables at the top of the `<style>` block.
+- Update links (LinkedIn, GitHub) and contact email in respective pages
+- Add/remove certificates under `certifications.html` and PDFs in `docs/`
+- Swap profile photo in `images/`
+- Tweak theme colors via CSS variables near the top of each page
 
-## Libraries / installs
+## Libraries
 
-- anime.js is loaded from a CDN in `<head>`. No local installation required.
-- Everything else is plain HTML/CSS/JS in a single file.
+- anime.js (CDN) for orbit animations
+- PDF.js (ESM) for PDF thumbnails and inline viewing
 
 ## Notes
 
-- The starfield density adapts to the viewport. If it feels heavy on low-end devices, reduce density inside `initStars()`.
-- Orbits and planets use anime.js for continuous rotation; durations are adjustable in `spinOrbits()`.
+- Starfield density scales with viewport to balance performance and visuals
+- Overlay viewer provides consistent PDF viewing across pages
