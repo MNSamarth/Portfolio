@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Certifications · Samarth Narahari Mandagere</title>
+  <meta name="description" content="Certificate gallery with live PDF thumbnails and inline viewer." />
+  <meta name="color-scheme" content="dark" />
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <style>
+    :root{ --bg:#050807; --bg-2:#070b0a; --text:#e9fff3; --muted:#9cb5a8; --accent:#64ff8f; --accent-2:#b4ffd2; --card:#0b0f10; --card-2:#0a0d0e; --link-hover:#c8ffe1; --shadow:0 8px 30px rgba(0,0,0,0.35); }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";color:var(--text);background:radial-gradient(1200px 800px at 50% -200px,#0f1413 0%,var(--bg) 55%,#030504 100%);overflow-x:hidden}
+    a{color:var(--accent);text-decoration:none} a:hover{color:var(--link-hover)}
+    /* Background layers */
+    .space-bg{position:fixed;inset:0;z-index:-3;pointer-events:none} #starfield{width:100%;height:100%;display:block}
+    .orbits{position:fixed;inset:0;z-index:-2;pointer-events:none}
+    .orbit{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed rgba(100,255,143,0.08);filter:drop-shadow(0 0 6px rgba(100,255,143,0.08))}
+    .planet{position:absolute;top:50%;left:50%;transform:translate(calc(var(--radius,150px)),-50%);border-radius:50%;box-shadow:0 0 16px rgba(100,255,143,0.25),0 0 36px rgba(180,255,210,0.15)}
+    .orbit-1{width:320px;height:320px}.planet-1{--radius:160px;width:18px;height:18px;background:radial-gradient(circle at 30% 30%,#c8ffe1 0%,#64ff8f 35%,#0e2a1e 100%)}
+    .orbit-2{width:560px;height:560px}.planet-2{--radius:280px;width:26px;height:26px;background:radial-gradient(circle at 35% 35%,#d7ffe9 0%,#8bffc0 45%,#0d3b2c 100%)}
+    .orbit-3{width:820px;height:820px}.planet-3{--radius:410px;width:36px;height:36px;background:radial-gradient(circle at 35% 35%,#b4ffd2 0%,#64ff8f 45%,#104233 100%)}
+    /* Header */
+    header{position:sticky;top:0;backdrop-filter:blur(8px);background:linear-gradient(to bottom,rgba(4,8,6,0.8),rgba(4,8,6,0.35));border-bottom:1px solid rgba(100,255,143,0.08);z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:18px 20px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.4px}
+    .brand .logo{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--accent-2) 0%,var(--accent) 55%,#0dff83 100%);box-shadow:0 0 18px rgba(100,255,143,0.4)}
+    .name-link{padding:8px 12px;border-radius:999px;border:1px solid rgba(100,255,143,0.22);background:rgba(100,255,143,0.08);font-weight:800}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    main{max-width:1200px;margin:0 auto;padding:28px 20px 80px}
+    h1{margin:8px 0 0;font-size:clamp(28px,4.6vw,42px);text-shadow:0 2px 40px rgba(100,255,143,0.18)}
+    p.lead{color:var(--muted);margin:6px 0 24px}
+    /* Grid */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .card{grid-column:span 4;background:linear-gradient(180deg,rgba(12,15,18,0.92),rgba(10,13,15,0.92));border:1px solid rgba(100,255,143,0.08);border-radius:14px;padding:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;cursor:pointer;transition:transform .2s,border-color .2s}
+    .card:hover{transform:translateY(-3px);border-color:rgba(100,255,143,0.28)}
+    .thumb{aspect-ratio:4/3;background:#0c1411;border:1px solid rgba(100,255,143,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .thumb canvas{width:100%;height:100%;display:block}
+    .title{font-weight:700;margin:0}
+    .meta{color:var(--muted);font-size:.85rem;margin:0}
+    @media(max-width:1000px){.card{grid-column:span 6}}
+    @media(max-width:680px){.card{grid-column:span 12}}
+    /* Lightbox */
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.65);display:none;align-items:center;justify-content:center;z-index:40}
+    .modal{width:min(92vw,1100px);height:min(86vh,820px);background:#0c1411;border:1px solid rgba(100,255,143,0.18);border-radius:14px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+    .modal .top{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(100,255,143,0.18)}
+    .modal .title{margin:0;font-weight:800}
+    .modal iframe{flex:1;width:100%;border:0;background:#000;border-bottom-left-radius:14px;border-bottom-right-radius:14px}
+    .btn{background:rgba(100,255,143,0.12);border:1px solid rgba(100,255,143,0.28);color:var(--text);padding:6px 12px;border-radius:8px;font-weight:600;cursor:pointer}
+    .btn:hover{background:rgba(100,255,143,0.18)}
+    footer{margin:30px 0 10px;color:var(--muted);text-align:center}
+    /* Extras styles */
+    .section{ margin-top:24px }
+    .masonry{ columns:1; column-gap:14px }
+    @media(min-width:700px){ .masonry{ columns:2 } }
+    @media(min-width:1050px){ .masonry{ columns:3 } }
+    .ecard{ break-inside: avoid; background: linear-gradient(180deg, rgba(12,15,18,0.92), rgba(10,13,15,0.92)); border:1px solid rgba(100,255,143,0.08); border-radius:14px; box-shadow:0 8px 30px rgba(0,0,0,0.35); margin:0 0 14px; overflow:hidden }
+    .photo{ width:100%; aspect-ratio:4/3; background:#0c1411; border-bottom:1px solid rgba(100,255,143,0.12); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; background-position:center; background-size:cover }
+    .photo img{ width:100%; height:100%; object-fit: contain; display:block; position:relative; z-index:1 }
+    .photo.has-bg::before{ content:""; position:absolute; inset:-6px; background:inherit; filter: blur(20px) brightness(0.8) saturate(1.1); transform: scale(1.12) }
+    .content{ padding:12px }
+    .content h3{ margin:0 0 6px; font-size:1.05rem }
+    .tag-list{ display:flex; flex-wrap:wrap; gap:6px; margin-top:8px }
+    .tag{ padding:4px 8px; border-radius:999px; background:rgba(100,255,143,0.13); border:1px solid rgba(100,255,143,0.25); font-size:.78rem; color:#dbffe9 }
+    .reveal{ opacity:0; transform: translateY(8px) }
+    .reveal.in{ opacity:1; transform:none; transition: opacity .4s ease, transform .4s ease }
+  </style>
+</head>
+<body>
+  <div class="space-bg" aria-hidden="true"><canvas id="starfield"></canvas></div>
+  <div class="orbits" aria-hidden="true">
+    <div class="orbit orbit-1"><div class="planet planet-1"></div></div>
+    <div class="orbit orbit-2"><div class="planet planet-2"></div></div>
+    <div class="orbit orbit-3"><div class="planet planet-3"></div></div>
+  </div>
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <div class="brand"><span class="logo" aria-hidden="true"></span><a href="index.html" class="name-link" aria-label="Home">Samarth Narahari Mandagere</a></div>
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experience</a>
+        <a href="certifications.html" aria-current="page">Certifications</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h1>Certifications</h1>
+    <p class="lead">PDF thumbnails rendered client‑side. Click a card to open an inline viewer.</p>
+    <div class="grid" id="certGrid">
+      <article class="card" data-src="docs/Harvard.pdf" data-title="Harvard Leadership">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/Harvard.pdf"></canvas></div>
+        <h3 class="title">Harvard Leadership</h3>
+        <p class="meta">Leadership principles, influence, and decision‑making frameworks for team impact.</p>
+      </article>
+      <article class="card" data-src="docs/Badge_AI_1BG21CS068.pdf" data-title="AI Badge">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/Badge_AI_1BG21CS068.pdf"></canvas></div>
+        <h3 class="title">AI Badge</h3>
+        <p class="meta">Covers core ML concepts, model evaluation, and practical applications in AI.</p>
+      </article>
+      <article class="card" data-src="docs/Salesforce_Administrator.pdf" data-title="Salesforce Administrator">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/Salesforce_Administrator.pdf"></canvas></div>
+        <h3 class="title">Salesforce Administrator</h3>
+        <p class="meta">Admin essentials: org setup, data modeling, security, automation, and reporting.</p>
+      </article>
+      <article class="card" data-src="docs/Badge_CYS_1BG21CS068.pdf" data-title="CyberSecurity">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/Badge_CYS_1BG21CS068.pdf"></canvas></div>
+        <h3 class="title">CyberSecurity</h3>
+        <p class="meta">Threat basics, secure practices, and defensive techniques for modern systems.</p>
+      </article>
+      <!-- <article class="card" data-src="docs/Contriver_best.jpg" data-title="Contriver Best Intern">
+        <div class="thumb" style="color:#9edfb9;font-size:.9rem">Best Intern – Contriver</div>
+        <h3 class="title">Contriver Best Intern</h3>
+        <p class="meta">JPG</p>
+      </article> -->
+      <article class="card" data-src="docs/Contriver_best.pdf" data-title="Contriver_Best">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/Contriver_best.pdf"></canvas></div>
+        <h3 class="title">Best Intern</h3>
+        <p class="meta">Awarded Best Intern for standout performance and consistent delivery quality.</p>
+      </article>
+      <article class="card" data-src="docs/OpenDay.pdf" data-title="OpenDay">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/OpenDay.pdf"></canvas></div>
+        <h3 class="title">OpenDay</h3>
+        <p class="meta">Recognized participation showcasing projects and contributions during institute Open Day.</p>
+      </article>
+      <article class="card" data-src="docs/BestProject.pdf" data-title="BestProject">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/BestProject.pdf"></canvas></div>
+        <h3 class="title">BestProject</h3>
+        <p class="meta">Best Project award for ISL Interpreter with strong applied ML impact.</p>
+      </article>
+      <article class="card" data-src="docs/AWS Certificate.pdf" data-title="AWS Certificate">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/AWS Certificate.pdf"></canvas></div>
+        <h3 class="title">AWS Certificate</h3>
+        <p class="meta">Cloud fundamentals: compute, storage, IAM, and best practices for deployments.</p>
+      </article>
+      <article class="card" data-src="docs/MongoDB Certification.pdf" data-title="MongoDB Certification">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/MongoDB Certification.pdf"></canvas></div>
+        <h3 class="title">MongoDB Certification</h3>
+        <p class="meta">Schema design, CRUD operations, indexing, and aggregation pipeline essentials.</p>
+      </article>
+      <article class="card" data-src="docs/IEEE - Quiz.pdf" data-title="IEEE - Quiz">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/IEEE - Quiz.pdf"></canvas></div>
+        <h3 class="title">IEEE - Quiz</h3>
+        <p class="meta">Demonstrated technical knowledge and problem solving in IEEE quiz event.</p>
+      </article>
+      <article class="card" data-src="docs/IBMHackathon.pdf" data-title="IBMHackathon">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/IBMHackathon.pdf"></canvas></div>
+        <h3 class="title">IBMHackathon</h3>
+        <p class="meta">Finalist in IBM EcoEquify; tackled sustainability with data‑driven solutions.</p>
+      </article>
+      <article class="card" data-src="docs/Anveshan Certificate.pdf" data-title="Anveshan Certificate">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/Anveshan Certificate.pdf"></canvas></div>
+        <h3 class="title">Anveshan Certificate</h3>
+        <p class="meta">Participation in research forum showcasing innovative student research work.</p>
+      </article>
+      <article class="card" data-src="docs/Multimedia Internship.pdf" data-title="Multimedia Internship">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/Multimedia Internship.pdf"></canvas></div>
+        <h3 class="title">Multimedia Internship</h3>
+        <p class="meta">Practical content workflow, production tools, and teamwork in media projects.</p>
+      </article>
+      <article class="card" data-src="docs/SmartANPRPresentationCertificate.pdf" data-title="SmartANPRPresentationCertificate">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/SmartANPRPresentationCertificate.pdf"></canvas></div>
+        <h3 class="title">SmartANPRPresentationCertificate</h3>
+        <p class="meta">Presented ANPR system results; highlighted OCR pipeline and model tuning.</p>
+      </article>
+      <article class="card" data-src="docs/Super60Certificate.pdf" data-title="Super60Certificate">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/Super60Certificate.pdf"></canvas></div>
+        <h3 class="title">Super60Certificate</h3>
+        <p class="meta">Selected cohort emphasizing advanced technical learning and peer leadership.</p>
+      </article>
+      <article class="card" data-src="docs/Cassandra Tutorial.pdf" data-title="Cassandra Tutorial">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/Cassandra Tutorial.pdf"></canvas></div>
+        <h3 class="title">Cassandra Tutorial</h3>
+        <p class="meta">Intro to Cassandra data modeling, partitioning, and query patterns.</p>
+      </article>
+      <article class="card" data-src="docs/BigDataHadoop.pdf" data-title="BigDataHadoop">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/BigDataHadoop.pdf"></canvas></div>
+        <h3 class="title">BigDataHadoop</h3>
+        <p class="meta">Foundations of Hadoop ecosystem; MapReduce, HDFS, and data processing.</p>
+      </article>
+      <article class="card" data-src="docs/Hive.pdf" data-title="Hive">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/Hive.pdf"></canvas></div>
+        <h3 class="title">Hive</h3>
+        <p class="meta">Data warehousing on Hadoop; HiveQL basics and partitioning strategies.</p>
+      </article>
+      <article class="card" data-src="docs/Badminton Certificate.pdf" data-title="Badminton Certificate">
+        <div class="thumb"><canvas class="pdf-thumb" width="420" height="315" data-pdf="docs/Badminton Certificate.pdf"></canvas></div>
+        <h3 class="title">Badminton Certificate</h3>
+        <p class="meta">Participated and advanced in badminton competitions at the university level.</p>
+      </article>
+    </div>
+    <!-- Extracurriculars and Achievements moved from Documents -->
+    <section class="section" aria-labelledby="extra-title" style="margin-top:28px;">
+      <h2 id="extra-title">Extracurriculars</h2>
+      <div class="masonry" id="extras">
+        <article class="ecard reveal"><div class="photo"><img src="images/extras-1.jpg" alt="Organized Valorant Tournament" loading="lazy"></div><div class="content"><h3>Organized Valorant Tournament</h3><p class="meta">Lead organizer · College Esports Society</p><p>Managed registrations, brackets, casting, and sponsorships.</p><div class="tag-list"><span class="tag">Esports</span><span class="tag">Leadership</span></div></div></article>
+        <article class="ecard reveal"><div class="photo"><img src="images/extras-2.jpg" alt="Esports Team Captain" loading="lazy"></div><div class="content"><h3>Esports Team Captain</h3><p class="meta">Valorant · 5v5</p><p>Led practice schedules, strat calls, and scrims.</p><div class="tag-list"><span class="tag">Captain</span><span class="tag">Strategy</span></div></div></article>
+        <article class="ecard reveal"><div class="photo"><img src="images/extras-3.jpg" alt="University Sports Meet" loading="lazy"></div><div class="content"><h3>University Sports Meet</h3><p class="meta">Badminton · Doubles</p><p>Reached quarter-finals; coordinated team logistics.</p><div class="tag-list"><span class="tag">Sports</span><span class="tag">Teamwork</span></div></div></article>
+        <article class="ecard reveal"><div class="photo"><img src="images/extras-4.jpg" alt="Hackathon Winner" loading="lazy"></div><div class="content"><h3>Hackathon Winner</h3><p class="meta">24h Hack · Theme: Smart Cities</p><p>Built a prototype for traffic analytics using CV and APIs.</p><div class="tag-list"><span class="tag">Hackathon</span><span class="tag">Winner</span></div></div></article>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="ach-title">
+      <h2 id="ach-title">Achievements</h2>
+      <div class="masonry" id="achievements">
+        <article class="ecard reveal"><div class="photo"><img src="images/ach-1.jpg" alt="Certificate in AI/ML" loading="lazy"></div><div class="content"><h3>Certificate · AI/ML</h3><p class="meta">Provider / Year</p><p>Brief description of the certification focus.</p><div class="tag-list"><span class="tag">AI/ML</span></div></div></article>
+        <article class="ecard reveal"><div class="photo"><img src="images/ach-2.jpg" alt="Winner of Coding Contest" loading="lazy"></div><div class="content"><h3>Winner · Coding Contest</h3><p class="meta">Platform / Rank</p><p>Summary of round(s) and problem areas.</p><div class="tag-list"><span class="tag">Algorithms</span></div></div></article>
+      </div>
+    </section>
+  </main>
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <div class="top"><h3 class="title" id="modalTitle">Document</h3><button class="btn" id="closeBtn">Close</button></div>
+      <iframe id="viewer" title="Certificate Viewer" allow="fullscreen"></iframe>
+    </div>
+  </div>
+  <footer>© <span id="year"></span> · Certifications</footer>
+  <!-- PDF.js module import -->
+  <script type="module">
+    import * as pdfjsLib from 'https://unpkg.com/pdfjs-dist@4.10.38/build/pdf.mjs';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@4.10.38/build/pdf.worker.mjs';
+    window.pdfjsLib = pdfjsLib;
+  </script>
+  <script src="js/certifications.js" defer></script>
+  <script>
+    // extras reveal and blurred backgrounds
+    const _io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); _io.unobserve(e.target);} });
+    }, { threshold: 0.1 });
+    window.addEventListener('DOMContentLoaded', ()=>{
+      document.querySelectorAll('.reveal').forEach(el=> _io.observe(el));
+      document.querySelectorAll('.photo').forEach(block=>{
+        const img = block.querySelector('img'); if(!img) return; const src = img.currentSrc || img.src; if(src){ block.style.backgroundImage = `url('${src}')`; block.classList.add('has-bg'); }
+      });
+    });
+  </script>
+</body>
+</html>

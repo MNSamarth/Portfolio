@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact · Samarth Narahari Mandagere</title>
+    <meta name="description" content="Contact Samarth via LinkedIn, GitHub, email, or phone. Space-themed with subtle animations." />
+    <meta name="color-scheme" content="dark" />
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+    <style>
+      :root{ --bg:#050807; --text:#e9fff3; --muted:#9cb5a8; --accent:#64ff8f; --accent-2:#b4ffd2; --link-hover:#c8ffe1; --panel:#0b0f10; --shadow:0 8px 30px rgba(0,0,0,0.35); }
+      *{box-sizing:border-box}
+      html,body{height:100%}
+  /* Match index.html background gradient exactly for source-of-truth consistency */
+  body{margin:0;background:radial-gradient(1200px 800px at 50% -200px,#0f1413 0%, #050807 55%, #030504 100%);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;letter-spacing:.2px}
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ color:var(--link-hover); }
+  header{position:sticky;top:0;left:0;right:0;z-index:10;backdrop-filter:blur(8px);background:linear-gradient(to bottom,rgba(4,8,6,0.8),rgba(4,8,6,0.35));border-bottom:1px solid rgba(100,255,143,0.08)}
+  .nav{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:16px 20px}
+  .nav, .nav a, .name-link{ font-size: 0.98rem; }
+  .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.2px}
+  .brand .logo{ width:22px; height:22px; border-radius:50%; background:radial-gradient(circle at 35% 35%, var(--accent-2) 0%, var(--accent) 55%, #0dff83 100%); box-shadow:0 0 18px rgba(100,255,143,0.4); }
+  .name-link{ padding:8px 12px; border-radius:999px; border:1px solid rgba(100,255,143,0.22); background:rgba(100,255,143,0.08); font-weight:800; }
+  .nav-links{display:flex;gap:18px;align-items:center}
+  .nav-links a{ color:var(--accent); text-decoration:none; }
+  .nav-links a:hover{ color:var(--link-hover); }
+
+      main{position:relative;min-height:100vh;display:flex;align-items:flex-start}
+      canvas#starfield{position:fixed;inset:0;z-index:-1}
+
+      .wrap{max-width:1100px;margin:110px auto 60px;padding:0 20px;width:100%}
+      h1{font-size:clamp(28px,4vw,40px);margin:0 0 8px}
+      p.lead{color:var(--muted);margin:0 0 28px}
+
+      .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+      .card{display:flex;gap:14px;background:linear-gradient(180deg,rgba(15,22,20,0.9),rgba(10,14,12,0.92));border:1px solid rgba(180,255,210,0.10);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+      .card .icon{flex:0 0 42px;height:42px;border-radius:10px;display:grid;place-items:center;background:rgba(100,255,143,0.08);border:1px solid rgba(100,255,143,0.18)}
+      .card .icon svg{width:24px;height:24px;fill:var(--accent)}
+      .card .content{flex:1 1 auto}
+      .card .title{font-weight:600;margin:0 0 4px}
+      .card .muted{color:var(--muted);margin:0 0 10px;font-size:0.95rem}
+      .actions{display:flex;flex-wrap:wrap;gap:10px}
+      .btn{appearance:none;border:1px solid rgba(100,255,143,0.25);background:transparent;color:var(--text);padding:8px 12px;border-radius:10px;text-decoration:none;cursor:pointer}
+      .btn.primary{background:rgba(100,255,143,0.12);border-color:rgba(100,255,143,0.5)}
+      .btn:hover{background:rgba(100,255,143,0.18)}
+
+      .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#0c1412;color:var(--text);padding:10px 14px;border-radius:10px;border:1px solid rgba(180,255,210,0.18);opacity:0;pointer-events:none;transition:opacity .2s ease}
+      .toast.show{opacity:1}
+
+  footer{max-width:1200px;margin:40px auto 40px;padding:0 20px;color:var(--muted);text-align:center}
+
+      @media (max-width:680px){
+        .cards{grid-template-columns:1fr}
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="nav" aria-label="Primary">
+        <div class="brand">
+          <span class="logo" aria-hidden="true"></span>
+          <a href="index.html" class="name-link" aria-label="Home">Samarth Narahari Mandagere</a>
+        </div>
+        <div class="nav-links">
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="experience.html">Experience</a>
+          <a href="certifications.html">Certifications</a>
+          <a href="contact.html" aria-current="page">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <canvas id="starfield"></canvas>
+
+    <main>
+      <div class="wrap">
+        <h1>Contact</h1>
+        <p class="lead">Choose your preferred way to reach me. Copy buttons included for quick sharing.</p>
+
+        <div class="cards">
+          <!-- Row 1: LinkedIn, GitHub (two separate items) -->
+          <article class="card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6v6h-4v-5.3c0-1.3 0-3-1.8-3s-2 1.4-2 2.9V21H9z"/></svg>
+            </div>
+            <div class="content">
+              <p class="title">LinkedIn</p>
+              <p class="muted">Connect professionally</p>
+              <div class="actions"><a class="btn primary" href="https://www.linkedin.com/in/samarthmandagere/" target="_blank" rel="noopener">Open LinkedIn</a></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.31 6.84 9.66.5.09.68-.22.68-.48 0-.24-.01-1.02-.01-1.85-2.78.62-3.37-1.23-3.37-1.23-.46-1.2-1.12-1.52-1.12-1.52-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.58 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.55-1.13-4.55-5 0-1.11.39-2.02 1.03-2.73-.1-.26-.45-1.3.1-2.7 0 0 .84-.27 2.75 1.05A9.3 9.3 0 0112 6.84c.85 0 1.7.12 2.5.35 1.9-1.32 2.74-1.05 2.74-1.05.56 1.4.21 2.44.1 2.7.64.71 1.02 1.62 1.02 2.73 0 3.88-2.34 4.74-4.57 5 .36.32.67.94.67 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.26 10.26 0 0022 12.26C22 6.58 17.52 2 12 2z"/></svg>
+            </div>
+            <div class="content">
+              <p class="title">GitHub</p>
+              <p class="muted">Browse repositories</p>
+              <div class="actions"><a class="btn primary" href="https://github.com/MNSamarth" target="_blank" rel="noopener">Open GitHub</a></div>
+            </div>
+          </article>
+
+          <!-- Row 2: University Email, US Number -->
+          <article class="card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5Z"/></svg>
+            </div>
+            <div class="content">
+              <p class="title">University Email</p>
+              <p class="muted">mandager@usc.edu</p>
+              <div class="actions">
+                <a class="btn primary" href="mailto:mandager@usc.edu">Send Email</a>
+                <button class="btn" type="button" data-copy="mandager@usc.edu">Copy</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.6 15.6 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.26 11.3 11.3 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h2.5a1 1 0 0 1 1 1 11.3 11.3 0 0 0 .57 3.56 1 1 0 0 1-.26 1L6.6 10.8Z"/></svg>
+            </div>
+            <div class="content">
+              <p class="title">Phone (USA)</p>
+              <p class="muted">+1 (213) 843-6405</p>
+              <div class="actions">
+                <a class="btn primary" href="tel:+12138436405">Call</a>
+                <button class="btn" type="button" data-copy="+12138436405">Copy</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 3: Personal Email, India Number -->
+          <article class="card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5Z"/></svg>
+            </div>
+            <div class="content">
+              <p class="title">Personal Email</p>
+              <p class="muted">samarthmandagere123@gmail.com</p>
+              <div class="actions">
+                <a class="btn primary" href="mailto:samarthmandagere123@gmail.com">Send Email</a>
+                <button class="btn" type="button" data-copy="samarthmandagere123@gmail.com">Copy</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.6 15.6 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.26 11.3 11.3 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h2.5a1 1 0 0 1 1 1 11.3 11.3 0 0 0 .57 3.56 1 1 0 0 1-.26 1L6.6 10.8Z"/></svg>
+            </div>
+            <div class="content">
+              <p class="title">Phone (India)</p>
+              <p class="muted">+91 7892681319</p>
+              <div class="actions">
+                <a class="btn primary" href="tel:+917892681319">Call</a>
+                <button class="btn" type="button" data-copy="+917892681319">Copy</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <div class="toast" role="status" aria-live="polite" id="toast">Copied</div>
+  <footer>© <span id="year"></span> · Contact</footer>
+
+    <script>
+      // Starfield (lightweight with constellation lines)
+      const canvas = document.getElementById('starfield');
+      const ctx = canvas.getContext('2d');
+      let stars=[], linkIdx=[], w=0,h=0, dpr=Math.min(window.devicePixelRatio||1,1.5), mouse={x:0,y:0};
+      function resize(){ w=canvas.clientWidth=window.innerWidth; h=canvas.clientHeight=window.innerHeight; canvas.width=Math.floor(w*dpr); canvas.height=Math.floor(h*dpr); ctx.setTransform(dpr,0,0,dpr,0,0); init(); }
+      function r(a,b){ return Math.random()*(b-a)+a }
+      function init(){ const n=Math.floor((w*h)/2200); stars=new Array(n).fill(0).map(()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()<0.6?r(0.3,0.9):r(0.9,1.5),a:r(0.35,1),tw:r(0.002,0.02),vx:r(-0.02,0.02),vy:r(-0.02,0.02)})); const maxLinks=w<640?50:(w<1024?80:110); linkIdx=Array.from({length:Math.min(maxLinks,stars.length)},(_,i)=>i) }
+      function draw(){ ctx.clearRect(0,0,w,h); const g=ctx.createRadialGradient(w/2,h/2,0,w/2,h/2,Math.max(w,h)/1.2); g.addColorStop(0,'rgba(5,8,7,0)'); g.addColorStop(1,'rgba(3,6,5,0.45)'); ctx.fillStyle=g; ctx.fillRect(0,0,w,h); for(const s of stars){ s.a+=s.tw; const al=0.5+0.5*Math.sin(s.a); s.x+=s.vx; s.y+=s.vy; if(s.x<0)s.x=w; if(s.x>w)s.x=0; if(s.y<0)s.y=h; if(s.y>h)s.y=0; const dx=(mouse.x-w/2)*0.0008, dy=(mouse.y-h/2)*0.0008; ctx.beginPath(); ctx.arc(s.x+dx*s.r*120, s.y+dy*s.r*120, s.r, 0, Math.PI*2); ctx.fillStyle=`rgba(180,255,210,${0.7*al})`; ctx.fill(); if(al>0.98 && s.r>0.8){ ctx.fillStyle='rgba(120,255,180,0.85)'; ctx.fillRect(s.x-0.5,s.y-0.5,1,1); } } const maxDist=120; for(let i=0;i<linkIdx.length;i++){ const s1=stars[linkIdx[i]]; if(!s1)continue; for(let j=i+1;j<linkIdx.length;j++){ const s2=stars[linkIdx[j]]; if(!s2)continue; const dx=s1.x-s2.x, dy=s1.y-s2.y, dist=Math.hypot(dx,dy); if(dist<maxDist){ const a=1-dist/maxDist; ctx.strokeStyle=`rgba(120,255,180,${0.06*a})`; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(s1.x,s1.y); ctx.lineTo(s2.x,s2.y); ctx.stroke(); } } } }
+      function loop(){ draw(); requestAnimationFrame(loop) }
+      window.addEventListener('resize',resize); window.addEventListener('mousemove',e=>{mouse.x=e.clientX; mouse.y=e.clientY}); resize(); loop();
+      // orbits
+      function spin(){ anime({targets:'.orbit-1', rotate:'1turn', duration:60000, easing:'linear', loop:true}); anime({targets:'.orbit-2', rotate:'1turn', duration:90000, easing:'linear', loop:true, direction:'reverse'}); anime({targets:'.orbit-3', rotate:'1turn', duration:130000, easing:'linear', loop:true}); }
+      window.addEventListener('DOMContentLoaded', spin);
+
+      // copy to clipboard + toast
+      const toast = document.getElementById('toast');
+      document.addEventListener('click', async (e)=>{
+        const t = e.target.closest('[data-copy]');
+        if(!t) return;
+        const text = t.getAttribute('data-copy');
+        try{ await navigator.clipboard.writeText(text); toast.textContent = 'Copied: ' + text; }catch{ toast.textContent = 'Copy failed'; }
+        toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'), 1400);
+      });
+      // Lock year display to 2025 per request
+      document.getElementById('year').textContent = '2025';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Extracurriculars & Achievements · Samarth Narahari Mandagere</title>
+    <meta name="description" content="Photo-card blog style gallery of extracurriculars and achievements with placeholders." />
+    <meta name="color-scheme" content="dark" />
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+    <style>
+      :root{ --bg:#050807; --text:#e9fff3; --muted:#9cb5a8; --accent:#64ff8f; --accent-2:#b4ffd2; --panel:#0b0f10; }
+      *{box-sizing:border-box}
+      body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:radial-gradient(1200px 800px at 50% -200px,#0f1413 0%,var(--bg) 55%,#030504 100%)}
+      a{color:var(--accent);text-decoration:none}
+      header{position:sticky;top:0;backdrop-filter:blur(8px);background:linear-gradient(to bottom,rgba(4,8,6,0.8),rgba(4,8,6,0.35));border-bottom:1px solid rgba(100,255,143,0.08);z-index:10}
+      .nav{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:18px 20px}
+      .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+      .brand .logo{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--accent-2) 0%,var(--accent) 55%,#0dff83 100%)}
+  .nav-links{display:flex;gap:18px;align-items:center}
+      .name-link{padding:8px 12px;border-radius:999px;border:1px solid rgba(100,255,143,0.22);background:rgba(100,255,143,0.08);font-weight:800}
+      main{max-width:1200px;margin:0 auto;padding:28px 20px 80px}
+      h1{font-size:clamp(28px,4.6vw,42px);margin:8px 0 2px}
+      p.lead{color:var(--muted)}
+      .section{margin-top:24px}
+      .masonry{columns:1;column-gap:14px}
+      @media(min-width:700px){.masonry{columns:2}}
+      @media(min-width:1050px){.masonry{columns:3}}
+      .card{break-inside:avoid;background:linear-gradient(180deg, rgba(12,15,18,0.92), rgba(10,13,15,0.92));border:1px solid rgba(100,255,143,0.08);border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,0.35);margin:0 0 14px;overflow:hidden}
+  .photo{width:100%;aspect-ratio:4/3;background:#0c1411;border-bottom:1px solid rgba(100,255,143,0.12);display:flex;align-items:center;justify-content:center;color:#9edfb9;position:relative;overflow:hidden;background-position:center;background-size:cover}
+  .photo img{width:100%;height:100%;object-fit:contain;display:block;position:relative;z-index:1;background:transparent}
+  .photo.has-bg::before{content:"";position:absolute;inset:-6px;background:inherit;filter:blur(20px) brightness(0.8) saturate(1.1);transform:scale(1.12);}
+      .content{padding:12px}
+      .content h3{margin:0 0 6px;font-size:1.05rem}
+      .meta{color:var(--muted);font-size:.9rem;margin-bottom:6px}
+      .tag-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+      .tag{padding:4px 8px;border-radius:999px;background:rgba(100,255,143,0.13);border:1px solid rgba(100,255,143,0.25);font-size:.78rem;color:#dbffe9}
+      /* reveal animations */
+      .reveal{opacity:0;transform:translateY(8px)}
+      .reveal.in{opacity:1;transform:none;transition:opacity .4s ease, transform .4s ease}
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="nav" aria-label="Primary">
+        <div class="brand"><span class="logo" aria-hidden="true"></span><a href="index.html" class="name-link" aria-label="Home">Samarth Narahari Mandagere</a></div>
+        <div class="nav-links">
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="experience.html">Experience</a>
+          <a href="certifications.html">Certifications</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h1>Extracurriculars & Achievements</h1>
+      <p class="lead">Photo-card blog style. Replace images, titles, and blurbs. Use this for esports, sports, leadership, and volunteering.</p>
+
+      <section class="section" aria-labelledby="extra-title">
+        <h2 id="extra-title">Extracurriculars</h2>
+        <div class="masonry" id="extras">
+          <!-- 10+ placeholders -->
+          <article class="card reveal"><div class="photo"><img src="images/extras-1.jpg" alt="Organized Valorant Tournament" loading="lazy"></div><div class="content"><h3>Organized Valorant Tournament</h3><p class="meta">Lead organizer · College Esports Society</p><p>Managed registrations, brackets, casting, and sponsorships.</p><div class="tag-list"><span class="tag">Esports</span><span class="tag">Leadership</span></div></div></article>
+          <article class="card reveal"><div class="photo"><img src="images/extras-2.jpg" alt="Esports Team Captain" loading="lazy"></div><div class="content"><h3>Esports Team Captain</h3><p class="meta">Valorant · 5v5</p><p>Led practice schedules, strat calls, and scrims.</p><div class="tag-list"><span class="tag">Captain</span><span class="tag">Strategy</span></div></div></article>
+          <article class="card reveal"><div class="photo"><img src="images/extras-3.jpg" alt="University Sports Meet" loading="lazy"></div><div class="content"><h3>University Sports Meet</h3><p class="meta">Badminton · Doubles</p><p>Reached quarter-finals; coordinated team logistics.</p><div class="tag-list"><span class="tag">Sports</span><span class="tag">Teamwork</span></div></div></article>
+          <article class="card reveal"><div class="photo"><img src="images/extras-4.jpg" alt="Hackathon Winner" loading="lazy"></div><div class="content"><h3>Hackathon Winner</h3><p class="meta">24h Hack · Theme: Smart Cities</p><p>Built a prototype for traffic analytics using CV and APIs.</p><div class="tag-list"><span class="tag">Hackathon</span><span class="tag">Winner</span></div></div></article>
+          <article class="card reveal"><div class="photo"><img src="images/extras-5.jpg" alt="Volunteer at Tech Fest" loading="lazy"></div><div class="content"><h3>Volunteer · Tech Fest</h3><p class="meta">Ops & Event Support</p><p>Handled check-ins, AV setup, and speaker coordination.</p><div class="tag-list"><span class="tag">Volunteering</span><span class="tag">Operations</span></div></div></article>
+          <!-- more placeholders -->
+          <article class="card reveal"><div class="photo"><img src="images/extras-6.jpg" alt="Valorant LAN Admin" loading="lazy"></div><div class="content"><h3>Valorant LAN Admin</h3><p class="meta">Tournament Ops</p><p>Match admin, anti-cheat checks, and server setup.</p><div class="tag-list"><span class="tag">Esports</span><span class="tag">Ops</span></div></div></article>
+          <article class="card reveal"><div class="photo"><img src="images/extras-7.jpg" alt="Open Source Contributor" loading="lazy"></div><div class="content"><h3>Open Source Contributor</h3><p class="meta">Small fixes & docs</p><p>Submitted PRs to improve documentation and examples.</p><div class="tag-list"><span class="tag">Open Source</span></div></div></article>
+          <article class="card reveal"><div class="photo"><img src="images/extras-8.jpg" alt="Campus Ambassador" loading="lazy"></div><div class="content"><h3>Campus Ambassador</h3><p class="meta">Tech Community</p><p>Evangelized meetups and mentorship sessions.</p><div class="tag-list"><span class="tag">Leadership</span><span class="tag">Community</span></div></div></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="ach-title">
+        <h2 id="ach-title">Achievements</h2>
+        <div class="masonry" id="achievements">
+          <!-- 8+ placeholders for certificates / wins -->
+          <article class="card reveal"><div class="photo"><img src="images/ach-1.jpg" alt="Certificate in AI/ML" loading="lazy"></div><div class="content"><h3>Certificate · AI/ML</h3><p class="meta">Provider / Year</p><p>Brief description of the certification focus.</p><div class="tag-list"><span class="tag">AI/ML</span></div></div></article>
+          <article class="card reveal"><div class="photo"><img src="images/ach-2.jpg" alt="Winner of Coding Contest" loading="lazy"></div><div class="content"><h3>Winner · Coding Contest</h3><p class="meta">Platform / Rank</p><p>Summary of round(s) and problem areas.</p><div class="tag-list"><span class="tag">Algorithms</span></div></div></article>
+          <article class="card reveal"><div class="photo"><img src="images/ach-3.jpg" alt="Finalist at Hackathon" loading="lazy"></div><div class="content"><h3>Finalist · Hackathon</h3><p class="meta">Event / Year</p><p>Built a prototype and demoed to judges.</p><div class="tag-list"><span class="tag">Hackathon</span></div></div></article>
+          <article class="card reveal"><div class="photo"><img src="images/ach-4.jpg" alt="Cybersecurity Certificate" loading="lazy"></div><div class="content"><h3>Certificate · Cybersecurity</h3><p class="meta">Provider / Year</p><p>Topics: network security, threat modeling.</p><div class="tag-list"><span class="tag">Security</span></div></div></article>
+          <article class="card reveal"><div class="photo"><img src="images/ach-5.jpg" alt="Organizer of Coding Bootcamp" loading="lazy"></div><div class="content"><h3>Organizer · Coding Bootcamp</h3><p class="meta">Club</p><p>Planned curriculum and peer mentorship.</p><div class="tag-list"><span class="tag">Mentorship</span></div></div></article>
+          <article class="card reveal"><div class="photo"><img src="images/ach-6.jpg" alt="Best Paper at Symposium" loading="lazy"></div><div class="content"><h3>Best Paper · Symposium</h3><p class="meta">Track / Year</p><p>Recognized for clarity and practical impact.</p><div class="tag-list"><span class="tag">Research</span></div></div></article>
+        </div>
+      </section>
+    </main>
+
+    <section id="contact" class="panel" style="max-width:1200px;margin:0 auto 14px;">
+      <h2>Contact</h2>
+      <p>Reach me on LinkedIn or via email.</p>
+      <p><a class="btn" href="https://www.linkedin.com/in/samarthmandagere/" target="_blank" rel="noopener">Open LinkedIn</a>
+      <span style="margin-left:10px; color:var(--muted)">or email: <a href="mailto:samarthmandagere123@gmail.com">samarthmandagere123@gmail.com</a></span></p>
+    </section>
+
+    <footer style="text-align:center;color:var(--muted);margin:10px 0 20px">© <span id="year"></span> · Extracurriculars & Achievements</footer>
+
+    <script>
+      // simple reveal on scroll
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target);} });
+      },{threshold:0.1});
+      document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+      document.getElementById('year').textContent = new Date().getFullYear();
+      // auto blurred backgrounds for photo blocks
+      document.querySelectorAll('.photo').forEach(block=>{
+        const img = block.querySelector('img');
+        if(!img) return;
+        const src = img.currentSrc || img.src;
+        if(src){ block.style.backgroundImage = `url('${src}')`; block.classList.add('has-bg'); }
+      });
+    </script>
+  </body>
+</html>
