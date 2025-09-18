@@ -69,8 +69,19 @@
 			section { margin-top: 32px; }
 			section h2 { margin: 0 0 10px; font-size: 1.5rem; }
 			.skills-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
-			.skill-card h3 { margin: 0 0 8px; font-size: 1rem; letter-spacing: 0.4px; color: #d5ffe8; }
-			.skill-card p { margin: 0; color: var(--muted); line-height: 1.6; }
+					.skill-card h3 { margin: 0 0 8px; font-size: 1rem; letter-spacing: 0.4px; color: #d5ffe8; }
+					.skill-card p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+					/* Chip list styling (matches screenshot) */
+					.chips { display:flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 2px; }
+					.chip-pill {
+						display:inline-flex; align-items:center; gap:10px;
+						padding: 8px 12px; border-radius: 999px;
+						background: rgba(100,255,143,0.08);
+						border: 1px solid rgba(100,255,143,0.22);
+						color: #dbffe9; font-weight: 700; letter-spacing: .2px;
+					}
+					.chip-pill::before { content:""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px rgba(100,255,143,0.7); }
 
 			.actions { display:flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
 			.btn { display:inline-flex; align-items:center; gap:10px; background: linear-gradient(135deg, #00c853, var(--accent)); padding: 10px 14px; border-radius: 10px; color: #05120b; font-weight: 800; border: none; }
@@ -139,27 +150,63 @@
 			</section>
 
 			<!-- Technical Skills -->
-			<section aria-labelledby="skills-title">
-				<h2 id="skills-title">TECHNICAL SKILLS</h2>
-				<div class="skills-grid">
-					<article class="panel skill-card">
-						<h3>Languages</h3>
-						<p>Java, Python, C/C++, JavaScript, SQL, HTML/CSS, PHP, MySQL, NoSQL, TypeScript</p>
-					</article>
-					<article class="panel skill-card">
-						<h3>Frameworks and Libraries</h3>
-						<p>React, NodeJS, Django, Pandas, NumPy, OpenCV, Keras, MediaPipe, Tensorflow, Flask, Angular</p>
-					</article>
-					<article class="panel skill-card">
-						<h3>Operating Systems and Tools</h3>
-						<p>Windows, Linux, Android, AWS, Azure, Git, Power BI, Tableau, WordPress</p>
-					</article>
-				</div>
+					<section aria-labelledby="skills-title">
+						<h2 id="skills-title">TECHNICAL SKILLS</h2>
+						<div class="skills-grid">
+							<article class="panel skill-card">
+								<h3>Languages</h3>
+								<ul class="chips" aria-label="Languages">
+									<li class="chip-pill">Java</li>
+									<li class="chip-pill">Python</li>
+									<li class="chip-pill">C</li>
+									<li class="chip-pill">C++</li>
+									<li class="chip-pill">JavaScript</li>
+									<li class="chip-pill">TypeScript</li>
+									<li class="chip-pill">SQL</li>
+									<li class="chip-pill">HTML/CSS</li>
+									<li class="chip-pill">PHP</li>
+									<li class="chip-pill">MySQL</li>
+									<li class="chip-pill">NoSQL</li>
+								</ul>
+							</article>
+
+							<article class="panel skill-card">
+								<h3>Cloud &amp; Tools</h3>
+								<ul class="chips" aria-label="Cloud and Tools">
+									<li class="chip-pill">Windows</li>
+									<li class="chip-pill">Linux</li>
+									<li class="chip-pill">Android</li>
+									<li class="chip-pill">AWS</li>
+									<li class="chip-pill">Azure</li>
+									<li class="chip-pill">Git</li>
+									<li class="chip-pill">Power BI</li>
+									<li class="chip-pill">Tableau</li>
+									<li class="chip-pill">WordPress</li>
+								</ul>
+							</article>
+
+							<article class="panel skill-card">
+								<h3>Libraries &amp; Frameworks</h3>
+								<ul class="chips" aria-label="Libraries and Frameworks">
+									<li class="chip-pill">React</li>
+									<li class="chip-pill">Node.js</li>
+									<li class="chip-pill">Django</li>
+									<li class="chip-pill">Flask</li>
+									<li class="chip-pill">Angular</li>
+									<li class="chip-pill">Pandas</li>
+									<li class="chip-pill">NumPy</li>
+									<li class="chip-pill">OpenCV</li>
+									<li class="chip-pill">Keras</li>
+									<li class="chip-pill">TensorFlow</li>
+									<li class="chip-pill">MediaPipe</li>
+								</ul>
+							</article>
+						</div>
 						<div class="actions">
 							<a class="btn" href="docs/Samarth Narahari Mandagere.pdf" download>Download Resume</a>
-					<a class="btn ghost" href="docs/CV(SamarthMN).pdf" download>Download CV</a>
-				</div>
-			</section>
+							<a class="btn ghost" href="docs/CV(SamarthMN).pdf" download>Download CV</a>
+						</div>
+					</section>
 
 			<!-- Contact panel (same as Home) -->
 			<section id="contact" aria-labelledby="contact-title" class="contact">
