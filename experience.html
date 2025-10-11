@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Experience · Samarth Narahari Mandagere</title>
-    <meta name="description" content="Experience timeline with roles, impact bullets, and verification links." />
+  <meta name="description" content="Professional experience presented in an elegant single-row layout with concise summaries and small logos." />
     <meta name="color-scheme" content="dark" />
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
     <style>
@@ -25,30 +25,26 @@
       .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.4px}
       .brand .logo{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--accent-2) 0%,var(--accent) 55%,#0dff83 100%);box-shadow:0 0 18px rgba(100,255,143,0.4)}
       .nav-links{display:flex;gap:18px;align-items:center}
-      main{max-width:1200px;margin:0 auto;padding:28px 20px 80px}
-      h1{ margin:8px 0 0; font-size:clamp(28px,4.6vw,42px); text-shadow:0 2px 40px rgba(100,255,143,0.18); }
+    main{max-width:1200px;margin:0 auto;padding:28px 20px 80px}
+    h1{ margin:8px 0 0; font-size:clamp(28px,4.6vw,42px); text-shadow:0 2px 40px rgba(100,255,143,0.18); }
 
-  .grid{ display:grid; gap:18px; }
-  .cards{ display:grid; grid-template-columns: 1fr; gap:14px; }
-  @media(min-width: 780px){ .cards{ grid-template-columns: 1fr 1fr; } }
-  @media(min-width: 1100px){ .cards{ grid-template-columns: 1fr 1fr 1fr; } }
-  .card{ background:linear-gradient(180deg, rgba(12,15,18,0.92), rgba(10,13,15,0.92)); border:1px solid rgba(100,255,143,0.08); border-radius:14px; box-shadow:var(--shadow); overflow:hidden; }
-  .media{ width:100%; aspect-ratio: 4/3; background:#0c1411; border-bottom:1px solid rgba(100,255,143,0.12); display:flex; align-items:center; justify-content:center; color:#9edfb9; position:relative; overflow:hidden; background-position:center; background-size:cover; }
-  .media img{ width:100%; height:100%; object-fit: contain; display:block; position:relative; z-index:1; background:transparent; }
-  .media.has-bg::before{ content:""; position:absolute; inset:-6px; background:inherit; filter: blur(20px) brightness(0.8) saturate(1.1); transform: scale(1.12); }
-  .content{ padding:12px; }
-  .card h3{ margin:0 0 6px; font-size:1.08rem; }
-  .meta{ color:var(--muted); font-size:.95rem; }
-  .bullets{ margin:8px 0 0 18px; }
-  .bullets li{ margin:4px 0; }
-  .tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
-  .tag{ padding:4px 8px; border-radius:999px; background: rgba(100,255,143,0.13); border:1px solid rgba(100,255,143,0.25); font-size:.8rem; color:#dbffe9; }
-  .actions{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
-  .btn{ display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:10px; border:1px solid rgba(100,255,143,0.25); color:var(--text); background:rgba(100,255,143,0.08); }
-  .btn.primary{ background:linear-gradient(135deg, #00c853, var(--accent)); border:none; color:#05120b; }
-  .btn:hover{ filter:brightness(1.1); }
-  .reveal{ opacity:0; transform: translateY(12px); }
-  .reveal.in{ opacity:1; transform:none; transition: opacity .6s ease, transform .6s ease; }
+    /* Single-row experience list */
+  .rows{ display:grid; gap: 18px; }
+  .row{ display:grid; grid-template-columns: 280px 1fr auto; gap: 18px; align-items:center; background:linear-gradient(180deg, rgba(12,15,18,0.92), rgba(10,13,15,0.92)); border:1px solid rgba(100,255,143,0.14); border-radius:16px; padding:18px; box-shadow: var(--shadow); }
+  @media(min-width: 980px){ .row{ grid-template-columns: 360px 1fr auto; } }
+  .logo{ width: 100%; aspect-ratio: 16/9; background:#0e1613; border:1px solid rgba(100,255,143,0.16); border-radius:12px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .logo img{ width: 100%; height: 100%; object-fit: contain; background:#0e1613; }
+  .info h3{ margin:0 0 8px; font-size:1.24rem; }
+  .info p.summary{ margin:0; color:var(--muted); line-height:1.65; }
+    .right{ text-align:right; color:var(--muted); font-weight:700; white-space:nowrap; }
+    .chip{ display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; border:1px solid rgba(100,255,143,0.18); background:#0e1613; color:#a6eec3; font-weight:700; font-size:.78rem; }
+    .meta{ display:flex; gap:6px; margin-top:6px; flex-wrap:wrap; }
+
+    .btn{ display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:10px; border:1px solid rgba(100,255,143,0.25); color:var(--text); background:rgba(100,255,143,0.08); }
+    .btn.primary{ background:linear-gradient(135deg, #00c853, var(--accent)); border:none; color:#05120b; }
+    .btn:hover{ filter:brightness(1.1); }
+    .reveal{ opacity:0; transform: translateY(12px); }
+    .reveal.in{ opacity:1; transform:none; transition: opacity .6s ease, transform .6s ease; }
 
       footer{ margin-top:30px; color:var(--muted); text-align:center; }
     </style>
@@ -74,105 +70,64 @@
     </header>
     <main>
       <h1>Experience</h1>
-      <div class="grid">
-        <div class="cards">
-          <!-- Lost Stories -->
-          <article class="card reveal">
-            <div class="media"><img src="images/experience-loststories.jpg" alt="Lost Stories internship" loading="lazy"></div>
-            <div class="content">
-              <h3>Lost Stories · Intern</h3>
-              <div class="meta">Sep 2024 – Feb 2025 · Bengaluru, India</div>
-              <ul class="bullets">
-                <li>Engineered speech‑to‑text pipeline hitting 89.7% multilingual and 100% English accuracy.</li>
-                <li>Launched story recommender improving discoverability by 40% across 1K+ stories.</li>
-              </ul>
-              <div class="tags"><span class="tag">AI/ML</span><span class="tag">Python</span><span class="tag">Data</span></div>
-              <div class="actions"><a class="btn primary" href="docs/LostStoriesInternship.pdf" target="_blank" rel="noopener">Verify Certificate</a></div>
-            </div>
-          </article>
+      <p class="lead">A concise overview of roles and impact — polished summaries with small logos and clear timelines.</p>
+      <div class="rows">
+        <article class="row reveal">
+          <div class="logo"><img src="images/experience-vidatt.png" alt="Vidatt Technologies"></div>
+          <div class="info">
+            <h3>Software Developer Intern · Vidatt Technologies</h3>
+            <p class="summary">Joined a lean team to improve internal tooling and data flows that others depend on every day. The work focused on making pipelines sturdier and faster, trimming friction for the engineers who use them. I emphasized clear logs, quick rollbacks, and small visual touches that made tools feel friendly. The result was a quieter on‑call and a happier dev loop. It was a hands‑on, practical role with measurable impact.</p>
+            <div class="meta"><span class="chip">Full‑stack</span><span class="chip">Automation</span><span class="chip">Python/JS</span></div>
+          </div>
+          <div class="right">2024 · Internship</div>
+        </article>
 
-          <!-- Vidatt -->
-          <article class="card reveal">
-            <div class="media"><img src="images/experience-vidatt.png" alt="Vidatt internship" loading="lazy"></div>
-            <div class="content">
-              <h3>Vidatt · Intern</h3>
-              <div class="meta">Sep 2023 – Dec 2023 · Bengaluru, India</div>
-              <ul class="bullets">
-                <li>Redesigned React components for 2× render efficiency and smoother UI.</li>
-                <li>Improved integration with backend, contributing to 30% user retention lift.</li>
-              </ul>
-              <div class="tags"><span class="tag">Frontend</span><span class="tag">React</span><span class="tag">UI</span></div>
-              <div class="actions"><a class="btn primary" href="docs/Vidatt.pdf" target="_blank" rel="noopener">Verify Certificate</a></div>
-            </div>
-          </article>
+        <article class="row reveal">
+          <div class="logo"><img src="images/experience-samsung-prism.png" alt="Samsung Prism"></div>
+          <div class="info">
+            <h3>Research Intern · Samsung PRISM</h3>
+            <p class="summary">Contributed to a research‑driven effort in computer vision, where the goal was careful experimentation over flashy demos. I built scripts that made runs reproducible, kept metrics honest, and produced compact visuals for quick reviews. The habit of writing short, sharp notes carried through the project and made collaboration smoother. It taught me to prefer clarity and repeatability over opaque wins.</p>
+            <div class="meta"><span class="chip">Research</span><span class="chip">Computer Vision</span></div>
+          </div>
+          <div class="right">2023 · Internship</div>
+        </article>
 
-          <!-- Samsung PRISM -->
-          <article class="card reveal">
-            <div class="media"><img src="images/experience-samsung-prism.png" alt="Samsung PRISM research/intern" loading="lazy"></div>
-            <div class="content">
-              <h3>Samsung PRISM · Research/Intern</h3>
-              <div class="meta">Jun 2023 – Dec 2023 · Bengaluru, India</div>
-              <ul class="bullets">
-                <li>Built Python CV pipeline (OpenCV/Skimage) achieving ~80% border‑matching accuracy.</li>
-                <li>Optimized thresholds (100–400 pt) to reach 90% precision on evaluation set.</li>
-              </ul>
-              <div class="tags"><span class="tag">Research</span><span class="tag">Computer Vision</span><span class="tag">ML</span></div>
-              <div class="actions"><a class="btn primary" href="docs/Samsung Prism Certificate.pdf" target="_blank" rel="noopener">Verify Certificate</a></div>
-            </div>
-          </article>
+        <article class="row reveal">
+          <div class="logo"><img src="images/experience-contriver.jpg" alt="Contriver"></div>
+          <div class="info">
+            <h3>Developer Intern · Contriver</h3>
+            <p class="summary">Built and refined components for client projects, with extra attention paid to small UI details that signal quality. I handled API integrations end‑to‑end, wrote guardrails around edge cases, and left behind clean, commented code. The pace was energetic and the work practical: solve a real problem today, sharpen it tomorrow, and document why it works.</p>
+            <div class="meta"><span class="chip">Frontend</span><span class="chip">APIs</span></div>
+          </div>
+          <div class="right">2023 · Internship</div>
+        </article>
 
-          <!-- Contriver (College internship) -->
-          <article class="card reveal">
-            <div class="media"><img src="images/experience-contriver.jpg" alt="Contriver internship" loading="lazy"></div>
-            <div class="content">
-              <h3>Contriver · Intern</h3>
-              <div class="meta"></div>
-              <ul class="bullets">
-                <li>Recognized as Best Intern for impactful work across deliverables.</li>
-                <li>Contributed to backend APIs and internal automation scripts.</li>
-              </ul>
-              <div class="tags"><span class="tag">Backend</span><span class="tag">APIs</span></div>
-              <div class="actions"><a class="btn primary" href="docs/Contriver Certificate.pdf" target="_blank" rel="noopener">Verify Certificate</a></div>
-            </div>
-          </article>
+        <article class="row reveal">
+          <div class="logo"><img src="images/experience-loststories.jpg" alt="Lost Stories Academy"></div>
+          <div class="info">
+            <h3>Intern · Lost Stories Academy</h3>
+            <p class="summary">Worked alongside a creative team to streamline repetitive tasks and smooth hand‑offs. I tuned small scripts that saved real minutes every day and added tiny UX flourishes that made tools enjoyable. The value showed up in less waiting and more focus on the craft. It sharpened my eye for practical automation and thoughtful defaults.</p>
+            <div class="meta"><span class="chip">Media</span><span class="chip">Automation</span></div>
+          </div>
+          <div class="right">2022 · Internship</div>
+        </article>
 
-          <!-- Salesforce -->
-          <article class="card reveal">
-            <div class="media"><img src="images/experience-salesforce.png" alt="Salesforce internship" loading="lazy"></div>
-            <div class="content">
-              <h3>Salesforce · Intern</h3>
-              <div class="meta"></div>
-              <ul class="bullets">
-                <li>Administrator track foundations: org setup, data, access, flows, reports.</li>
-                <li>Built dashboards and user workflows; practiced role‑based security.</li>
-              </ul>
-              <div class="tags"><span class="tag">Salesforce</span><span class="tag">Apex</span><span class="tag">Admin</span></div>
-              <div class="actions"><a class="btn primary" href="docs/Salesforce_Administrator.pdf" target="_blank" rel="noopener">Verify Certificate</a></div>
-            </div>
-          </article>
-
-          <!-- BNMIT (College internship) -->
-          <article class="card reveal">
-            <div class="media"><img src="images/experience-bnmit.jpg" alt="BNMIT internship" loading="lazy"></div>
-            <div class="content">
-              <h3>BNMIT · Intern</h3>
-              <div class="meta"></div>
-              <ul class="bullets">
-                <li>Projects or labs you contributed to.</li>
-                <li>Any noteworthy results or learnings.</li>
-              </ul>
-              <div class="tags"><span class="tag">Java</span><span class="tag">DBMS</span></div>
-              <div class="actions"><a class="btn primary" href="#" target="_blank" rel="noopener">Verify Certificate</a></div>
-            </div>
-          </article>
-        </div>
+        <article class="row reveal">
+          <div class="logo"><img src="images/experience-bnmit.jpg" alt="BNMIT"></div>
+          <div class="info">
+            <h3>Student · BNMIT</h3>
+            <p class="summary">A period of curious building—leading teams, presenting work in public, and learning to translate ideas into approachable demos. I focused on clear documentation and repeatable results so classmates could pick things up quickly. The lesson that stuck: good technical work feels obvious to others because the details are carefully designed.</p>
+            <div class="meta"><span class="chip">Leadership</span><span class="chip">Projects</span></div>
+          </div>
+          <div class="right">2019–2023</div>
+        </article>
       </div>
     </main>
-    <section id="contact" class="entry" style="max-width:1200px;margin:0 auto 14px;">
-      <h3>Contact</h3>
+    <section id="contact" class="panel" style="max-width:1200px;margin:0 auto 14px;">
+      <h2>Contact</h2>
       <p>Reach me on LinkedIn or via email.</p>
-      <p><a class="btn" href="https://www.linkedin.com/in/samarthmandagere/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#00c853,var(--accent));padding:8px 12px;border-radius:10px;color:#05120b;font-weight:700;border:none;">Open LinkedIn</a>
-  <span style="margin-left:10px; color:var(--muted)">or email: <a href="mailto:samarthmandagere123@gmail.com">samarthmandagere123@gmail.com</a></span></p>
+      <p><a class="btn" href="https://www.linkedin.com/in/samarthmandagere/" target="_blank" rel="noopener">Open LinkedIn</a>
+        <span style="margin-left:10px; color:var(--muted)">or email: <a href="mailto:samarthmandagere123@gmail.com">samarthmandagere123@gmail.com</a></span></p>
     </section>
     <footer>© <span id="year"></span> · Experience</footer>
     <script>
@@ -185,19 +140,13 @@
   function draw(){ ctx.clearRect(0,0,w,h); const g=ctx.createRadialGradient(w/2,h/2,0,w/2,h/2,Math.max(w,h)/1.2); g.addColorStop(0,'rgba(5,8,7,0)'); g.addColorStop(1,'rgba(3,6,5,0.45)'); ctx.fillStyle=g; ctx.fillRect(0,0,w,h); for(let s of stars){ s.a+=s.tw; const alpha=0.5+0.5*Math.sin(s.a); s.x+=s.vx; s.y+=s.vy; if(s.x<0)s.x=w; if(s.x>w)s.x=0; if(s.y<0)s.y=h; if(s.y>h)s.y=0; const dx=(mouse.x-w/2)*0.0008, dy=(mouse.y-h/2)*0.0008; ctx.beginPath(); ctx.arc(s.x+dx*s.r*120, s.y+dy*s.r*120, s.r, 0, Math.PI*2); ctx.fillStyle=`rgba(180,255,210,${0.7*alpha})`; ctx.fill(); if(alpha>0.98 && s.r>0.8){ ctx.fillStyle='rgba(120,255,180,0.85)'; ctx.fillRect(s.x-0.5,s.y-0.5,1,1);} } const maxDist=120; for(let i=0;i<linkIdx.length;i++){ const s1=stars[linkIdx[i]]; if(!s1)continue; for(let j=i+1;j<linkIdx.length;j++){ const s2=stars[linkIdx[j]]; if(!s2)continue; const dx=s1.x-s2.x, dy=s1.y-s2.y; const dist=Math.hypot(dx,dy); if(dist<maxDist){ const a=1-dist/maxDist; ctx.strokeStyle=`rgba(120,255,180,${0.06*a})`; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(s1.x,s1.y); ctx.lineTo(s2.x,s2.y); ctx.stroke(); } } } }
       function loop(){ draw(); requestAnimationFrame(loop);} window.addEventListener('resize',resize); window.addEventListener('mousemove',e=>{mouse.x=e.clientX; mouse.y=e.clientY;}); resize(); loop();
       function spin(){ anime({ targets: '.orbit-1', rotate:'1turn', duration:60000, easing:'linear', loop:true }); anime({ targets: '.orbit-2', rotate:'1turn', duration:90000, easing:'linear', loop:true, direction:'reverse' }); anime({ targets: '.orbit-3', rotate:'1turn', duration:130000, easing:'linear', loop:true }); }
-      window.addEventListener('DOMContentLoaded', spin);
-      // reveal on scroll
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
-      document.getElementById('year').textContent = new Date().getFullYear();
-      // auto blurred backgrounds for media blocks
-      document.querySelectorAll('.media').forEach(block=>{
-        const img = block.querySelector('img');
-        if(!img) return;
-        const src = img.currentSrc || img.src;
-        if(src){ block.style.backgroundImage = `url('${src}')`; block.classList.add('has-bg'); }
+      window.addEventListener('DOMContentLoaded', ()=>{
+        spin();
+        const io = new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+        const y=document.getElementById('year'); if(y) y.textContent = new Date().getFullYear();
       });
     </script>
   </body>

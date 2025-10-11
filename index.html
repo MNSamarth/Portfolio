@@ -462,14 +462,19 @@
 					if (!res.ok) throw new Error('fetch failed');
 					const html = await res.text();
 					const doc = new DOMParser().parseFromString(html, 'text/html');
-					const cards = Array.from(doc.querySelectorAll('.cards > .card')).slice(0, 4);
+					let cards = Array.from(doc.querySelectorAll('.cards > .card'));
+					if (!cards.length) {
+						// Support new row layout
+						cards = Array.from(doc.querySelectorAll('.rows > .row'));
+					}
+					cards = cards.slice(0, 4);
 					if (!cards.length) throw new Error('no cards found');
 					// Map each project card into a compact home card preserving order
 					const frag = document.createDocumentFragment();
 					for (const c of cards) {
 						const title = c.querySelector('h3')?.textContent?.trim() || 'Project';
-						const desc = c.querySelector('p')?.textContent?.trim() || '';
-						const tags = Array.from(c.querySelectorAll('.tags .tag')).slice(0,4).map(t=>t.textContent.trim());
+						const desc = (c.querySelector('p.summary') || c.querySelector('p'))?.textContent?.trim() || '';
+						const tags = Array.from(c.querySelectorAll('.tags .tag, .meta .chip')).slice(0,4).map(t=>t.textContent.trim());
 						const cardEl = document.createElement('article');
 						cardEl.className = 'card';
 						cardEl.innerHTML = `
