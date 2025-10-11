@@ -39,6 +39,7 @@
     .right{ text-align:right; color:var(--muted); font-weight:700; white-space:nowrap; }
     .chip{ display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; border:1px solid rgba(100,255,143,0.18); background:#0e1613; color:#a6eec3; font-weight:700; font-size:.78rem; }
     .meta{ display:flex; gap:6px; margin-top:6px; flex-wrap:wrap; }
+  .actions{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
 
     .btn{ display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:10px; border:1px solid rgba(100,255,143,0.25); color:var(--text); background:rgba(100,255,143,0.08); }
     .btn.primary{ background:linear-gradient(135deg, #00c853, var(--accent)); border:none; color:#05120b; }
@@ -72,54 +73,64 @@
       <h1>Experience</h1>
       <p class="lead">A concise overview of roles and impact — polished summaries with small logos and clear timelines.</p>
       <div class="rows">
+        <!-- Vylar (Lost Stories) — Sep 2024 to Feb 2025, Bengaluru, India -->
         <article class="row reveal">
-          <div class="logo"><img src="images/experience-vidatt.png" alt="Vidatt Technologies"></div>
+          <div class="logo"><img src="images/experience-loststories.jpg" alt="Vylar (Lost Stories)"></div>
           <div class="info">
-            <h3>Software Developer Intern · Vidatt Technologies</h3>
-            <p class="summary">Joined a lean team to improve internal tooling and data flows that others depend on every day. The work focused on making pipelines sturdier and faster, trimming friction for the engineers who use them. I emphasized clear logs, quick rollbacks, and small visual touches that made tools feel friendly. The result was a quieter on‑call and a happier dev loop. It was a hands‑on, practical role with measurable impact.</p>
-            <div class="meta"><span class="chip">Full‑stack</span><span class="chip">Automation</span><span class="chip">Python/JS</span></div>
+            <h3>AI Research Intern · Vylar (Lost Stories)</h3>
+            <p class="summary">Engineered an end‑to‑end content ingestion and processing pipeline in Python, cutting multilingual transcription time by 85% with parallelized audio chunking and a vocal‑isolation API. Built a full‑stack content‑moderation dashboard from scratch, enabling an internal team to verify creator submissions by automated safety scores and manage content status. Designed, built, and deployed two key product features: a creator analytics dashboard and a geolocational story recommendation engine, directly improving content discoverability by ~40%. Work emphasized pragmatic engineering, measurable wins, and smooth UX for internal reviewers.</p>
+            <div class="meta"><span class="chip">Python</span><span class="chip">AI/ML</span><span class="chip">Full‑stack</span><span class="chip">Bengaluru, India</span></div>
+            <div class="actions"><a class="btn primary" href="docs/LostStoriesInternship.pdf" target="_blank" rel="noopener">Verify certificate</a></div>
           </div>
-          <div class="right">2024 · Internship</div>
+          <div class="right">Sep 2024 – Feb 2025</div>
         </article>
 
+        <!-- Vidatt Data Analytics Pvt Ltd — Sep 2023 to Dec 2023, Bengaluru, India -->
         <article class="row reveal">
-          <div class="logo"><img src="images/experience-samsung-prism.png" alt="Samsung Prism"></div>
+          <div class="logo"><img src="images/experience-vidatt.png" alt="Vidatt Data Analytics Pvt Ltd"></div>
           <div class="info">
-            <h3>Research Intern · Samsung PRISM</h3>
-            <p class="summary">Contributed to a research‑driven effort in computer vision, where the goal was careful experimentation over flashy demos. I built scripts that made runs reproducible, kept metrics honest, and produced compact visuals for quick reviews. The habit of writing short, sharp notes carried through the project and made collaboration smoother. It taught me to prefer clarity and repeatability over opaque wins.</p>
-            <div class="meta"><span class="chip">Research</span><span class="chip">Computer Vision</span></div>
+            <h3>Front End Developer Intern · Vidatt Data Analytics Pvt Ltd</h3>
+            <p class="summary">Boosted UI render efficiency by ~2× by re‑architecting 15+ core React components and introducing performance‑oriented interactive gradients. Ensured code reliability with a Jest test suite for custom hooks, maintaining 100% coverage for critical business logic across iterations. The result was a smoother UI and a measurable 30% lift in user retention while keeping code quality high during rapid releases.</p>
+            <div class="meta"><span class="chip">React</span><span class="chip">Frontend</span><span class="chip">Testing</span><span class="chip">Bengaluru, India</span></div>
+            <div class="actions"><a class="btn primary" href="docs/Vidatt.pdf" target="_blank" rel="noopener">Verify certificate</a></div>
           </div>
-          <div class="right">2023 · Internship</div>
+          <div class="right">Sep 2023 – Dec 2023</div>
         </article>
 
+        <!-- Samsung PRISM — Jun 2023 to Dec 2023, Bengaluru, India -->
+        <article class="row reveal">
+          <div class="logo"><img src="images/experience-samsung-prism.png" alt="Samsung PRISM"></div>
+          <div class="info">
+            <h3>Intern — Border Matching Worklet · Samsung PRISM</h3>
+            <p class="summary">Reduced manual image‑comparison workload by 75%+ by engineering an automated Python script to process and validate large batches of UI and camera images with OpenCV. Focused on clear evaluation criteria, reproducible runs, and readable visual diffs so reviewers could trust and act on the results quickly. Delivered a dependable toolchain rather than a black box.</p>
+            <div class="meta"><span class="chip">Computer Vision</span><span class="chip">OpenCV</span><span class="chip">Python</span><span class="chip">Bengaluru, India</span></div>
+            <div class="actions"><a class="btn primary" href="docs/Samsung Prism Certificate.pdf" target="_blank" rel="noopener">Verify certificate</a></div>
+          </div>
+          <div class="right">Jun 2023 – Dec 2023</div>
+        </article>
+
+        <!-- Contriver — Oct 2023 to Nov 2023 -->
         <article class="row reveal">
           <div class="logo"><img src="images/experience-contriver.jpg" alt="Contriver"></div>
           <div class="info">
-            <h3>Developer Intern · Contriver</h3>
-            <p class="summary">Built and refined components for client projects, with extra attention paid to small UI details that signal quality. I handled API integrations end‑to‑end, wrote guardrails around edge cases, and left behind clean, commented code. The pace was energetic and the work practical: solve a real problem today, sharpen it tomorrow, and document why it works.</p>
-            <div class="meta"><span class="chip">Frontend</span><span class="chip">APIs</span></div>
+            <h3>Developer Intern (Full Stack & AI/ML) · Contriver</h3>
+            <p class="summary">Spearheaded front‑end work with WordPress to deliver responsive, user‑friendly pages. Built an age‑and‑gender detection model with Keras/TensorFlow achieving 95%+ accuracy and implemented a face‑mask recognition system hitting ~98% by tuning preprocessing and thresholds. Balanced practical delivery with readable, well‑structured code for follow‑on teams.</p>
+            <div class="meta"><span class="chip">WordPress</span><span class="chip">Keras/TensorFlow</span><span class="chip">Computer Vision</span></div>
+            <div class="actions"><a class="btn primary" href="docs/Contriver Certificate.pdf" target="_blank" rel="noopener">Verify certificate</a></div>
           </div>
-          <div class="right">2023 · Internship</div>
+          <div class="right">Oct 2023 – Nov 2023</div>
         </article>
 
-        <article class="row reveal">
-          <div class="logo"><img src="images/experience-loststories.jpg" alt="Lost Stories Academy"></div>
-          <div class="info">
-            <h3>Intern · Lost Stories Academy</h3>
-            <p class="summary">Worked alongside a creative team to streamline repetitive tasks and smooth hand‑offs. I tuned small scripts that saved real minutes every day and added tiny UX flourishes that made tools enjoyable. The value showed up in less waiting and more focus on the craft. It sharpened my eye for practical automation and thoughtful defaults.</p>
-            <div class="meta"><span class="chip">Media</span><span class="chip">Automation</span></div>
-          </div>
-          <div class="right">2022 · Internship</div>
-        </article>
-
+        <!-- BNMIT — 2023 -->
         <article class="row reveal">
           <div class="logo"><img src="images/experience-bnmit.jpg" alt="BNMIT"></div>
           <div class="info">
-            <h3>Student · BNMIT</h3>
-            <p class="summary">A period of curious building—leading teams, presenting work in public, and learning to translate ideas into approachable demos. I focused on clear documentation and repeatable results so classmates could pick things up quickly. The lesson that stuck: good technical work feels obvious to others because the details are carefully designed.</p>
-            <div class="meta"><span class="chip">Leadership</span><span class="chip">Projects</span></div>
+            <h3>Internal Intern (Java & Multimedia) · BNM Institute of Technology (BNMIT)</h3>
+            <p class="summary">Completed project‑based internships in intermediate Java and multimedia, culminating in a 1st‑place finish in the program’s competitive Java hackathon. Work emphasized core principles, clean code style, and presentation of results through polished demos.</p>
+            <div class="meta"><span class="chip">Java</span><span class="chip">Multimedia</span><span class="chip">Bengaluru, India</span></div>
+            <div class="actions"><a class="btn primary" href="docs/Multimedia Internship.pdf" target="_blank" rel="noopener">Verify certificate</a></div>
           </div>
-          <div class="right">2019–2023</div>
+          <div class="right">2023</div>
         </article>
       </div>
     </main>

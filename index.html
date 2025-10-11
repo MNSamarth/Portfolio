@@ -256,27 +256,23 @@
 				<template id="home-projects-fallback">
 					<article class="card">
 						<h3>Indian Sign Language Recognition</h3>
-						<p>Real‑time classification of ISL alphabets/words using CV and deep learning.</p>
 						<div class="tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">OpenCV</span></div>
-						<div class="actions"><a class="primary" href="projects.html">View project</a></div>
+						<div class="actions"><a class="primary" href="projects.html#project-isl">Read more</a></div>
 					</article>
 					<article class="card">
 						<h3>Automatic Number Plate Recognition (ANPR)</h3>
-						<p>Detects license plates from images/video, segments characters, and performs OCR.</p>
 						<div class="tags"><span class="tag">Python</span><span class="tag">OpenCV</span></div>
-						<div class="actions"><a class="primary" href="projects.html">View project</a></div>
+						<div class="actions"><a class="primary" href="projects.html#project-anpr">Read more</a></div>
 					</article>
 					<article class="card">
 						<h3>AutoMail AI</h3>
-						<p>Generates context‑aware emails with templates, tone control, and quick edits.</p>
 						<div class="tags"><span class="tag">Python</span><span class="tag">Flask</span></div>
-						<div class="actions"><a class="primary" href="projects.html">View project</a></div>
+						<div class="actions"><a class="primary" href="projects.html#project-automail-ai">Read more</a></div>
 					</article>
 					<article class="card">
 						<h3>StockOPorto</h3>
-						<p>Stock portfolio helper with analytics, risk metrics, and basic optimization.</p>
 						<div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span></div>
-						<div class="actions"><a class="primary" href="projects.html">View project</a></div>
+						<div class="actions"><a class="primary" href="projects.html#project-stockoporto">Read more</a></div>
 					</article>
 				</template>
 			</section>
@@ -473,15 +469,16 @@
 					const frag = document.createDocumentFragment();
 					for (const c of cards) {
 						const title = c.querySelector('h3')?.textContent?.trim() || 'Project';
-						const desc = (c.querySelector('p.summary') || c.querySelector('p'))?.textContent?.trim() || '';
 						const tags = Array.from(c.querySelectorAll('.tags .tag, .meta .chip')).slice(0,4).map(t=>t.textContent.trim());
+						// Find anchor target: prefer ID on the row element
+						const id = c.getAttribute('id') || '';
+						const href = id ? `projects.html#${id}` : 'projects.html';
 						const cardEl = document.createElement('article');
 						cardEl.className = 'card';
 						cardEl.innerHTML = `
 							<h3>${title}</h3>
-							<p>${desc}</p>
-							<div class="tags">${tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-							<div class="actions"><a class="primary" href="projects.html">View project</a></div>
+							<div class="tags">${tags.map(t=>`<span class=\"tag\">${t}</span>`).join('')}</div>
+							<div class="actions"><a class="primary" href="${href}">Read more</a></div>
 						`;
 						frag.appendChild(cardEl);
 					}
