@@ -251,33 +251,34 @@
 
 			<section aria-labelledby="work-title">
 				<h2 id="work-title">Highlighted Work</h2>
-				<p class="lead">A few recent projects. See more on the Projects page.</p>
-				<div class="projects-grid">
+				<p class="lead">Always synced to the first four projects from the Projects page.</p>
+				<div id="home-projects" class="projects-grid" aria-live="polite"></div>
+				<template id="home-projects-fallback">
 					<article class="card">
-						<h3>StockOPorto</h3>
-						<p>Stock portfolio helper with analytics, risk metrics, and basic optimization.</p>
-						<div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span></div>
-						<div class="actions"><a class="primary" href="projects.html">View project</a></div>
-					</article>
-					<article class="card">
-						<h3>AutoMail AI</h3>
-						<p>Generates context‑aware emails with templating and tone control.</p>
-						<div class="tags"><span class="tag">Python</span><span class="tag">NLP</span><span class="tag">Flask</span></div>
+						<h3>Indian Sign Language Recognition</h3>
+						<p>Real‑time classification of ISL alphabets/words using CV and deep learning.</p>
+						<div class="tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">OpenCV</span></div>
 						<div class="actions"><a class="primary" href="projects.html">View project</a></div>
 					</article>
 					<article class="card">
 						<h3>Automatic Number Plate Recognition (ANPR)</h3>
-						<p>Detects and recognizes license plates from traffic footage.</p>
-						<div class="tags"><span class="tag">OpenCV</span><span class="tag">OCR</span><span class="tag">Computer Vision</span></div>
-						<div class="actions"><a class="primary" href="projects.html">View project</a></div>
-					</article>
-					<article class="card">
-						<h3>Template Matching</h3>
-						<p>Classical CV approach to find known patterns within images quickly.</p>
+						<p>Detects license plates from images/video, segments characters, and performs OCR.</p>
 						<div class="tags"><span class="tag">Python</span><span class="tag">OpenCV</span></div>
 						<div class="actions"><a class="primary" href="projects.html">View project</a></div>
 					</article>
-				</div>
+					<article class="card">
+						<h3>AutoMail AI</h3>
+						<p>Generates context‑aware emails with templates, tone control, and quick edits.</p>
+						<div class="tags"><span class="tag">Python</span><span class="tag">Flask</span></div>
+						<div class="actions"><a class="primary" href="projects.html">View project</a></div>
+					</article>
+					<article class="card">
+						<h3>StockOPorto</h3>
+						<p>Stock portfolio helper with analytics, risk metrics, and basic optimization.</p>
+						<div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span></div>
+						<div class="actions"><a class="primary" href="projects.html">View project</a></div>
+					</article>
+				</template>
 			</section>
 
 
@@ -452,12 +453,53 @@
 				});
 			});
 
+			// Build Highlighted Work from projects.html (first 4 in order)
+			async function injectHomeProjects() {
+				const container = document.getElementById('home-projects');
+				if (!container) return;
+				try {
+					const res = await fetch('projects.html', { credentials: 'same-origin' });
+					if (!res.ok) throw new Error('fetch failed');
+					const html = await res.text();
+					const doc = new DOMParser().parseFromString(html, 'text/html');
+					const cards = Array.from(doc.querySelectorAll('.cards > .card')).slice(0, 4);
+					if (!cards.length) throw new Error('no cards found');
+					// Map each project card into a compact home card preserving order
+					const frag = document.createDocumentFragment();
+					for (const c of cards) {
+						const title = c.querySelector('h3')?.textContent?.trim() || 'Project';
+						const desc = c.querySelector('p')?.textContent?.trim() || '';
+						const tags = Array.from(c.querySelectorAll('.tags .tag')).slice(0,4).map(t=>t.textContent.trim());
+						const cardEl = document.createElement('article');
+						cardEl.className = 'card';
+						cardEl.innerHTML = `
+							<h3>${title}</h3>
+							<p>${desc}</p>
+							<div class="tags">${tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+							<div class="actions"><a class="primary" href="projects.html">View project</a></div>
+						`;
+						frag.appendChild(cardEl);
+					}
+					container.innerHTML = '';
+					container.appendChild(frag);
+					projectsReveal();
+				} catch (e) {
+					// Fallback: use static template
+					const tpl = document.getElementById('home-projects-fallback');
+					if (tpl && 'content' in tpl) {
+						container.innerHTML = '';
+						container.appendChild(tpl.content.cloneNode(true));
+						projectsReveal();
+					}
+				}
+			}
+
 			// Init
 			window.addEventListener('DOMContentLoaded', () => {
 				document.getElementById('year').textContent = new Date().getFullYear();
 				spinOrbits();
 				heroIn();
-				projectsReveal();
+				injectHomeProjects();
 			});
 		</script>
 	</body>

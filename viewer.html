@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Document Viewer</title>
+  <style>
+    :root {
+      --bg: #0b0f14; --text: #ecf8ff; --muted: #aac5d1; --accent: #64ff8f;
+    }
+    html, body { height: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      display: grid; grid-template-rows: auto 1fr; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    header { display:flex; align-items:center; justify-content:space-between; padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.35); position: sticky; top: 0; backdrop-filter: blur(6px); }
+    header .title { font-weight: 700; letter-spacing: .3px; }
+    header .actions { display:flex; gap: 8px; }
+    .btn { appearance:none; border:1px solid rgba(255,255,255,0.15); background:#111a22; color:#dff; padding:8px 12px; border-radius:8px; cursor:pointer; }
+    .btn.primary { border-color: rgba(100,255,143,0.4); background: rgba(100,255,143,0.1); color: #dbffe9; }
+    .viewer { height: 100%; }
+    iframe { width: 100%; height: 100%; border: 0; background: #111; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title" id="docTitle">Document</div>
+    <div class="actions">
+      <button class="btn" id="btnOpen">Open in new tab</button>
+      <button class="btn primary" id="btnPrint">Print</button>
+      <a class="btn" id="btnDownload" download>Download</a>
+    </div>
+  </header>
+  <main class="viewer">
+    <iframe id="frame" title="PDF preview"></iframe>
+  </main>
+  <script>
+    (function(){
+      const params = new URLSearchParams(location.search);
+      const file = params.get('file');
+      const title = params.get('title') || 'Document';
+      const shouldPrint = params.get('print') === '1' || params.get('print') === 'true';
+      const frame = document.getElementById('frame');
+      const btnPrint = document.getElementById('btnPrint');
+      const btnOpen = document.getElementById('btnOpen');
+      const btnDownload = document.getElementById('btnDownload');
+      document.getElementById('docTitle').textContent = title;
+
+      if (!file) {
+        frame.srcdoc = '<div style="display:grid;place-items:center;height:100%;color:#aac5d1">Missing file parameter.</div>';
+        btnPrint.disabled = true; btnOpen.disabled = true; return;
+      }
+      // Set sources
+      frame.src = file;
+      btnOpen.onclick = () => window.open(file, '_blank', 'noopener');
+      btnDownload.href = file;
+
+      function triggerPrint(){
+        try {
+          const f = frame.contentWindow || frame;
+          f.focus();
+          // Some browsers need a delay before print once loaded
+          f.print();
+        } catch(e) {
+          window.print();
+        }
+      }
+
+      // Print when iframe finishes loading if requested
+      frame.addEventListener('load', () => {
+        if (shouldPrint) {
+          setTimeout(triggerPrint, 300);
+        }
+      });
+
+      btnPrint.addEventListener('click', triggerPrint);
+    })();
+  </script>
+</body>
+</html>
