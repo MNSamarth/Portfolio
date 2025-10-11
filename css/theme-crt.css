@@ -1,0 +1,46 @@
+/* Phosphor Observatory Theme (CRT-inspired) */
+:root{
+  --crt-bg:#050806; --crt-text:#e9fff3; --crt-muted:#9fb9ad;
+  --crt-phosphor:#64ff8f; --crt-cyan:#64e2ff; --crt-amber:#ffd479;
+  --crt-line:rgba(100,255,143,0.25); --crt-border:rgba(100,255,143,0.14);
+}
+
+/* Global font + scanlines */
+body.theme-crt{ font-family:"JetBrains Mono","IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace; background: radial-gradient(1200px 800px at 50% -200px,#0e1411 0%, var(--crt-bg) 55%, #030504 100%); color:var(--crt-text); }
+body.theme-crt::before{ content:""; position:fixed; inset:0; pointer-events:none; z-index:-1; background:repeating-linear-gradient(to bottom, rgba(100,255,143,0.03), rgba(100,255,143,0.03) 1px, transparent 2px, transparent 4px); opacity:.16; }
+body.theme-crt::after{ content:""; position:fixed; inset:0; pointer-events:none; z-index:-1; background:radial-gradient(90% 75% at 50% 40%, transparent 60%, rgba(0,0,0,0.35) 100%); }
+
+/* Mission Control nav */
+.theme-crt header{ background: linear-gradient(to bottom, rgba(10,20,16,0.7), rgba(10,20,16,0.3)); border-bottom:1px dashed var(--crt-line); }
+.theme-crt .nav a{ text-transform:uppercase; letter-spacing:.4px; }
+.theme-crt .nav a:hover{ text-shadow:0 0 10px rgba(100,255,143,0.4); }
+
+/* Cards/Rows vector corners */
+.theme-crt .row, .theme-crt .card{ position:relative; border:1px solid var(--crt-border); }
+.theme-crt .row::before, .theme-crt .row::after, .theme-crt .card::before, .theme-crt .card::after{ content:""; position:absolute; width:14px; height:14px; border:1px solid var(--crt-line); }
+.theme-crt .row::before{ top:8px; left:8px; border-right:0; border-bottom:0; }
+.theme-crt .row::after{ top:8px; right:8px; border-left:0; border-bottom:0; }
+.theme-crt .card::before{ bottom:8px; left:8px; border-right:0; border-top:0; }
+.theme-crt .card::after{ bottom:8px; right:8px; border-left:0; border-top:0; }
+
+/* Thumbnail sweep */
+.theme-crt .thumb{ position:relative; overflow:hidden; }
+.theme-crt .thumb::after{ content:""; position:absolute; inset:0; transform:translateX(-100%); background:linear-gradient(90deg, rgba(180,255,210,0) 0%, rgba(180,255,210,0.22) 50%, rgba(180,255,210,0) 100%); transition:transform .42s ease; mix-blend-mode:screen; pointer-events:none; }
+.theme-crt .row:hover .thumb::after{ transform:translateX(100%); }
+
+/* Title micro-glitch */
+@keyframes crtJitter{ 0%{ transform:translateX(0); } 50%{ transform:translateX(1px); } 100%{ transform:translateX(0); } }
+.theme-crt .row:hover h3{ animation:crtJitter 120ms ease; }
+
+/* Chips pulse */
+@keyframes chipPulse { 50% { box-shadow:0 0 12px rgba(100,255,143,0.22); } }
+.theme-crt .meta .chip:first-child, .theme-crt .tags .tag:first-child{ box-shadow:0 0 0 rgba(100,255,143,0); animation:chipPulse 1.8s ease-in-out infinite; }
+
+/* Buttons: hard edges + glow */
+.theme-crt .btn{ border:1px solid var(--crt-line); background:rgba(100,255,143,0.08); color:var(--crt-text); }
+.theme-crt .btn.primary{ background:linear-gradient(135deg,#00c853,var(--crt-phosphor)); color:#05120b; border:none; }
+.theme-crt .btn:hover{ box-shadow:0 0 12px rgba(100,255,143,0.22); }
+
+/* Hero type cursor */
+.theme-crt .hero h1::after{ content:"|"; margin-left:4px; animation: blink 1s step-start infinite; opacity:.8; }
+@keyframes blink{ 50%{ opacity:0; } }
