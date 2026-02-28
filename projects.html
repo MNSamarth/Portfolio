@@ -43,6 +43,7 @@
   @media(min-width: 980px){ .row{ grid-template-columns: 340px 1fr; } }
   .thumb{ width:100%; aspect-ratio: 16/9; background:#0e1613; border:1px solid rgba(100,255,143,0.16); border-radius:12px; overflow:hidden; display:flex; align-items:center; justify-content:center; }
   .thumb img{ width:100%; height:100%; object-fit: contain; background:#0e1613; }
+  .thumb-text{ font-weight:850; font-size:1.1rem; letter-spacing:0.6px; color:var(--accent-2); text-align:center; padding:10px; }
   .info h3{ margin: 0 0 8px; font-size: 1.24rem; }
   .info p.summary{ margin: 0 0 12px; color: var(--muted); line-height: 1.65; }
   .meta{ display:flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
@@ -85,6 +86,26 @@
       <h1>Selected Projects</h1>
       <p class="lead">Clean, concise summaries with small thumbnails — optimized for clarity and quick scanning.</p>
       <div class="rows">
+        <article id="project-promptquest" class="row reveal">
+          <div class="thumb"><img src="images/PromptQuest.png" alt="PromptQuest" loading="lazy"></div>
+          <div class="info">
+            <h3>PromptQuest</h3>
+            <p class="summary">Real-time prompt engineering game designed to teach structured prompting through interactive challenges. Built as a full-stack web platform with dynamic scoring, evaluation logic, and instant feedback to reinforce high-quality prompt construction. The system evaluates responses against structured criteria, balancing creativity and correctness while maintaining low-latency interactions. Designed for accessibility and rapid iteration, the platform emphasizes clean UI, modular backend logic, and scalable deployment. Won 1st Place at the Vercel Software Awards (“Good Vibes Only Buildathon”). Future iterations explore adaptive difficulty and LLM-driven personalized feedback loops.</p>
+            <div class="meta"><span class="chip">AI Systems</span><span class="chip">Full-Stack Development</span><span class="chip">LLM Integration</span><span class="chip">Next.js</span><span class="chip">Cloud Deployment</span></div>
+            <div class="actions"><a class="btn primary" href="https://github.com/MNSamarth/PromptQuest" target="_blank" rel="noopener">GitHub</a></div>
+          </div>
+        </article>
+
+        <article id="project-eventsearch" class="row reveal">
+          <div class="thumb"><img src="images/EventSearch.png" alt="EventSearch" loading="lazy"></div>
+          <div class="info">
+            <h3>EventSearch</h3>
+            <p class="summary">Location-aware event discovery platform built to deliver fast, filtered search results with scalable backend architecture. Designed RESTful APIs to handle event ingestion, query filtering, and ranking while maintaining efficient database indexing for low-latency responses. The system supports dynamic filtering by location, category, and time, with an intuitive UI for seamless browsing. Emphasis was placed on backend reliability, clean schema design, and deployability in cloud environments. Future iterations explore recommendation ranking and real-time event updates using streaming pipelines.</p>
+            <div class="meta"><span class="chip">Backend Engineering</span><span class="chip">REST APIs</span><span class="chip">Database Design</span><span class="chip">Cloud Deployment</span><span class="chip">Full-Stack Development</span></div>
+            <div class="actions"><a class="btn primary" href="https://github.com/MNSamarth/EventSearch" target="_blank" rel="noopener">GitHub</a></div>
+          </div>
+        </article>
+
   <article id="project-isl" class="row reveal">
           <div class="thumb"><img src="images/ISL.png" alt="Indian Sign Language Recognition" loading="lazy"></div>
           <div class="info">
