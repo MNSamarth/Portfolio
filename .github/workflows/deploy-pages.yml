@@ -34,12 +34,17 @@ jobs:
         run: npm ci
       - name: Build static site
         run: npm run build
-      - name: Disable Jekyll
-        run: touch dist/client/.nojekyll
+      - name: Prepare Pages artifact
+        run: |
+          mkdir -p dist/pages
+          cp -R dist/client/. dist/pages/
+          cp -R dist/client/Portfolio/_next dist/pages/_next
+          rm -rf dist/pages/Portfolio
+          touch dist/pages/.nojekyll
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: dist/client
+          path: dist/pages
 
   deploy:
     needs: build
