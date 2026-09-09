@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { Reveal } from './reveal';
 
+const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 export function ImpactStories() {
   return (
     <section className="impact-stories section-pad" aria-labelledby="impact-title">
@@ -52,7 +54,7 @@ export function ImpactStories() {
 
         <Reveal as="article" className="impact-card impact-prompt" delay={150}>
           <div className="impact-prompt-thumb" aria-hidden="true">
-            <Image src="/promptquest.png" alt="" fill sizes="240px" />
+            <Image src={`${assetBase}/promptquest.png`} alt="" fill sizes="240px" />
           </div>
           <div className="impact-story-copy">
             <p className="mono">PROMPTQUEST / AWARD</p>

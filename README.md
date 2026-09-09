@@ -18,4 +18,4 @@ npm run build
 npm run start
 ```
 
-The repository contains the deployable source. Configure your hosting provider and custom domain separately.
+The repository includes a GitHub Pages workflow that publishes the static portfolio at https://mnsamarth.github.io/Portfolio/.

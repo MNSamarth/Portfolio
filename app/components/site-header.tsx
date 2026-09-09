@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -22,7 +24,7 @@ export function SiteHeader() {
         <div id="primary-links" className={`nav-links ${menuOpen ? 'is-open' : ''}`}>
           <a href="#work" onClick={() => setMenuOpen(false)}>WORK</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>ABOUT</a>
-          <a href="/samarth-mandagere-resume.pdf" target="_blank" rel="noreferrer">RÉSUMÉ ↗</a>
+          <a href={`${assetBase}/samarth-mandagere-resume.pdf`} target="_blank" rel="noreferrer">RÉSUMÉ ↗</a>
           <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label="Toggle color theme">
             <span className="theme-dot" aria-hidden="true" />
             <span>THEME</span>

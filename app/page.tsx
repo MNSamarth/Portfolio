@@ -8,6 +8,10 @@ import { SiteHeader } from './components/site-header';
 import { SystemField } from './components/system-field';
 import { TechNetwork } from './components/tech-network';
 
+export const dynamic = 'force-static';
+
+const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 const experience = [
   { year: '2024—25', company: 'VYLAR / LOST STORIES', role: 'Founding Software Engineering Intern', category: 'PRODUCTION SYSTEMS · AI' },
   { year: '2023', company: 'VIDATT DATA ANALYTICS', role: 'Frontend Developer Intern', category: 'REACT · TESTING' },
@@ -41,7 +45,7 @@ export default function Home() {
               <p className="hero-school">M.S. Computer Science @ USC · May 2027</p>
               <div className="hero-actions mono">
                 <a className="button button-primary" href="#work">Explore work <span aria-hidden="true">↓</span></a>
-                <a className="button button-secondary" href="/samarth-mandagere-resume.pdf" target="_blank" rel="noreferrer">Résumé <span aria-hidden="true">↗</span></a>
+                <a className="button button-secondary" href={`${assetBase}/samarth-mandagere-resume.pdf`} target="_blank" rel="noreferrer">Résumé <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </div>
@@ -105,7 +109,7 @@ export default function Home() {
             </Reveal>
             <div className="promptquest-stage">
               <Reveal className="promptquest-image-main">
-                <Image src="/promptquest.png" alt="PromptQuest gameplay interface showing its challenge path, score, level, and leaderboard" fill sizes="(max-width: 800px) 100vw, 62vw" priority={false} />
+                <Image src={`${assetBase}/promptquest.png`} alt="PromptQuest gameplay interface showing its challenge path, score, level, and leaderboard" fill sizes="(max-width: 800px) 100vw, 62vw" priority={false} />
               </Reveal>
               <Reveal className="pq-float pq-score mono" delay={120}>
                 <span>REAL-TIME SCORE</span><strong>00</strong><i />
@@ -167,7 +171,7 @@ export default function Home() {
         <section id="about" className="about section-pad" aria-labelledby="about-title">
           <Reveal className="about-photo-stage">
             <div className="about-image">
-              <Image src="/SamarthMN(DP).png" alt="Samarth Mandagere" fill unoptimized sizes="(max-width: 640px) 100vw, 600px" />
+              <Image src={`${assetBase}/SamarthMN(DP).png`} alt="Samarth Mandagere" fill unoptimized sizes="(max-width: 640px) 100vw, 600px" />
             </div>
             <span className="photo-index mono">PHOTO 01 / USC</span>
             <div className="photo-registration mono" aria-hidden="true"><i /> 34.0206° N<br /><i /> 118.2854° W</div>
@@ -215,7 +219,7 @@ export default function Home() {
               <a href="mailto:samarthmandagere.dev@gmail.com">EMAIL ↗</a>
               <a href="https://www.linkedin.com/in/samarthmandagere/" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
               <a href="https://github.com/MNSamarth" target="_blank" rel="noreferrer">GITHUB ↗</a>
-              <a href="/samarth-mandagere-resume.pdf" target="_blank" rel="noreferrer">RÉSUMÉ ↗</a>
+              <a href={`${assetBase}/samarth-mandagere-resume.pdf`} target="_blank" rel="noreferrer">RÉSUMÉ ↗</a>
             </nav>
           </Reveal>
           <div className="footer-line mono">
