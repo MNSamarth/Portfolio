@@ -45,7 +45,7 @@ export default function Home() {
               <p className="hero-school">M.S. Computer Science @ USC · May 2027</p>
               <div className="hero-actions mono">
                 <a className="button button-primary" href="#work">Explore work <span aria-hidden="true">↓</span></a>
-                <a className="button button-secondary" href={`${assetBase}/samarth-mandagere-resume.pdf`} target="_blank" rel="noreferrer">Résumé <span aria-hidden="true">↗</span></a>
+                <a className="button button-secondary" href={`${assetBase}/Samarth_Narahari_Mandagere.pdf`} target="_blank" rel="noreferrer">Résumé <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </div>
@@ -219,7 +219,7 @@ export default function Home() {
               <a href="mailto:samarthmandagere.dev@gmail.com">EMAIL ↗</a>
               <a href="https://www.linkedin.com/in/samarthmandagere/" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
               <a href="https://github.com/MNSamarth" target="_blank" rel="noreferrer">GITHUB ↗</a>
-              <a href={`${assetBase}/samarth-mandagere-resume.pdf`} target="_blank" rel="noreferrer">RÉSUMÉ ↗</a>
+              <a href={`${assetBase}/Samarth_Narahari_Mandagere.pdf`} target="_blank" rel="noreferrer">RÉSUMÉ ↗</a>
             </nav>
           </Reveal>
           <div className="footer-line mono">
