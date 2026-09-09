@@ -772,3 +772,11 @@
 
 /* Align the DP with the About container */
 .about-photo-stage { margin-left: 0; }
+
+/* Give the About annotations room to breathe */
+.interest-annotations { min-height: 320px; }
+.interest-cloud { height: 220px; }
+@media (max-width: 720px) {
+  .interest-annotations { min-height: 400px; }
+  .interest-cloud { height: 315px; }
+}
